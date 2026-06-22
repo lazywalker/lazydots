@@ -20,7 +20,7 @@ file_exists() {
 }
 
 # Kill already running processes (exclude waybar to avoid double reloads)
-_ps=(rofi swaync ags)
+_ps=(rofi swaync ags ashell)
 for _prs in "${_ps[@]}"; do
   if pidof "${_prs}" >/dev/null; then
     pkill "${_prs}"
@@ -38,7 +38,7 @@ pkill -f 'waybar-cava\..*\.conf' 2>/dev/null || true
 pkill qs && qs &
 
 # some process to kill (exclude waybar to avoid restart loops)
-for pid in $(pidof rofi swaync ags swaybg); do
+for pid in $(pidof rofi swaync ags swaybg ashell); do
   kill -SIGUSR1 "$pid"
   sleep 0.1
 done
@@ -75,13 +75,15 @@ restart_waybar() {
   fi
 }
 
-restart_waybar
+# use ashell now
+ashell -c ~/.config/ashell/config.toml
+# restart_waybar
 
 # relaunch swaync
-sleep 0.3
-swaync >/dev/null 2>&1 &
+#sleep 0.3
+#swaync >/dev/null 2>&1 &
 # reload swaync
-swaync-client --reload-config
+#swaync-client --reload-config
 
 # Relaunching rainbow borders if the script exists
 sleep 1

@@ -38,7 +38,7 @@ pkill qs && qs &
 
 
 # reload swaync
-swaync-client --reload-config
+# swaync-client --reload-config
 
 # Relaunching rainbow borders if the script exists
 sleep 1

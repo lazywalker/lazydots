@@ -40,7 +40,8 @@ local startup_commands = {
   scriptsDir .. "/Polkit.sh",
   "nm-applet",
   "nm-tray",
-  "swaync",
+  -- use ashell's notification center now.
+  -- "swaync",
   scriptsDir .. "/PortalHyprland.sh",
   "sh " .. scriptsDir .. "/WaybarStartup.sh",
   "qs -c overview",
