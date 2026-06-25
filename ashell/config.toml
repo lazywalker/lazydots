@@ -154,8 +154,8 @@ show_brightness_percentage = false  # (default) show numeric brightness value in
 enabled = false   # (default)
 
 [appearance]
-#style = "Islands"  # (default), "Solid", or "Gradient"
-style = "Solid"  # (default), "Solid", or "Gradient"
+style = "Islands"  # (default), "Solid", or "Gradient"
+# style = "Solid"  # (default), "Solid", or "Gradient"
 # font_name = "Sans"           # (default: None) custom font family
 font_name = "JetBrainsMono Nerd Font"
 # scale_factor = 1.0           # (default) range: 0.0 < x <= 2.0
@@ -181,4 +181,4 @@ strong = "#414868"
 # neutral = "#000000"    # (default: None)
 # stronger = "#000000"   # (default: None)
 # strongest = "#000000"  # (default: None)
-# text = "#ffffff"       # (default: None)
+text = "#ffffff"       # (default: None)

@@ -254,7 +254,7 @@ if wallust "${wallust_args[@]}" theme -- "${choice}" >"$wallust_log" 2>&1; then
   fi
 
   reload_hypr_preserve_layout
-  ensure_wallust_waybar_style
+  # ensure_wallust_waybar_style
   reload_running_cava_colors
 
   # Refresh bars/menus after files are ready
