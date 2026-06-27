@@ -23,8 +23,8 @@ smart_gaps off
 # Window borders — from niri layout { focus-ring { width 4; active-color "#7fc8ff"; inactive-color "#505050"; } }
 # ============================================================================
 # Thin pixel border (no title bars, matches niri's prefer-no-csd behavior)
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 3
+default_floating_border pixel 4
 default_orientation vertical
 
 # ============================================================================
@@ -64,6 +64,10 @@ for_window [app_id="org.mozilla.firefox" title="Picture-in-Picture"] floating en
 # Loupe image viewer → floating
 # niri: match app-id=r#"^org\.gnome\.Loupe$"# open-floating true
 for_window [app_id="org.gnome.Loupe"] floating enable
+
+# DMS Settings → floating
+# niri: match app-id=r#"^org\.quickshell$"# title="^Settings$" open-floating true
+for_window [app_id="org.quickshell" title="Settings"] floating enable
 
 # Kitty theme picker → floating, fixed size
 # niri: default-column-width { fixed 800; } default-window-height { fixed 500; } open-floating true
