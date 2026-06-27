@@ -1,0 +1,15 @@
+# Ignore everything at root level by default
+/*
+
+# Whitelist tracked directories
+!/.gitignore
+!/ashell/
+!/DankMaterialShell/
+!/environment.d/
+!/fcitx5/
+!/hypr/
+!/kitty/
+!/niri/
+!/sway/
+!/Thunar/
+!/waybar/

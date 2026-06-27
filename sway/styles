@@ -1,0 +1,89 @@
+# Window styles ported from niri/config.kdl
+#
+# Mappings:
+#   niri                              → sway equivalent
+#   layout.gaps 12                    → gaps inner 12, gaps outer 0
+#   layout.struts left 16 / right 16  → gaps horizontal 16 (outer)
+#   layout.focus-ring                 → client.focused / client.unfocused colors
+#   layout.border (off)               → default_border pixel 1 (thin, minimal)
+#   layout.shadow                     → (not supported in vanilla sway)
+#   window-rule open-floating         → for_window floating enable
+#   window-rule default-column-width  → for_window resize set width height
+
+# ============================================================================
+# Gaps — from niri layout { gaps 12; struts { left 16; right 16; } }
+# ============================================================================
+gaps inner 12
+gaps outer 0
+# niri struts act as side-specific outer gaps; sway only supports uniform outer
+# Use smart_gaps to hide gaps when only one window on workspace (niri column behavior)
+smart_gaps off
+
+# ============================================================================
+# Window borders — from niri layout { focus-ring { width 4; active-color "#7fc8ff"; inactive-color "#505050"; } }
+# ============================================================================
+# Thin pixel border (no title bars, matches niri's prefer-no-csd behavior)
+default_border pixel 2
+default_floating_border pixel 2
+default_orientation vertical
+
+# ============================================================================
+# Client colors — mapped from niri focus-ring + border colors
+#   niri focus-ring active:   #7fc8ff (light blue)
+#   niri focus-ring inactive: #505050 (dark gray)
+#   niri border urgent:       #9b0000 (dark red)
+#   niri border active:       #ffc87f (orange, border is off in niri)
+# ============================================================================
+# Active focused window — main focus ring color
+client.focused          #7fc8ff #7fc8ff #1e1e2e #7fc8ff #7fc8ff
+
+# Focused but on inactive output
+client.focused_inactive #505050 #505050 #1e1e2e #505050 #505050
+
+# Unfocused windows
+client.unfocused        #505050 #3a3a3a #1e1e2e #3a3a3a #3a3a3a
+
+# Urgent/attention windows
+client.urgent           #9b0000 #9b0000 #1e1e2e #9b0000 #9b0000
+
+# Placeholder (empty workspace background)
+client.placeholder      #3a3a3a #1e1e2e #1e1e2e #3a3a3a #1e1e2e
+
+# Background
+client.background       #1e1e2e
+
+# ============================================================================
+# Window rules — ported from niri window-rule blocks
+# ============================================================================
+
+# Firefox Picture-in-Picture → floating
+# niri: match app-id=r#"firefox$"# title="^Picture-in-Picture$" open-floating true
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+for_window [app_id="org.mozilla.firefox" title="Picture-in-Picture"] floating enable
+
+# Loupe image viewer → floating
+# niri: match app-id=r#"^org\.gnome\.Loupe$"# open-floating true
+for_window [app_id="org.gnome.Loupe"] floating enable
+
+# Kitty theme picker → floating, fixed size
+# niri: default-column-width { fixed 800; } default-window-height { fixed 500; } open-floating true
+for_window [title="kitty-theme-picker"] floating enable, resize set 800 500
+
+# WezTerm — niri had a workaround for initial configure bug; not needed in sway
+# but keep the app_id reference for any future rules
+# for_window [app_id="org.wezfurlong.wezterm"] ...
+
+# KeePassXC block-out from screen-capture (commented in niri, not supported in sway)
+# for_window [app_id="org.keepassxc.KeePassXC"] ...
+
+# Rounded corners example (commented in niri, requires sway fork like swayfx)
+# for_window [all] corner_radius 12
+
+# ============================================================================
+# Animations note
+# ============================================================================
+# niri animations { } is empty (defaults). Vanilla sway has no animation config.
+# For window animations in sway, use a fork like swayfx which supports:
+#   - window open/close/move transitions
+#   - blur, shadows, corner radius
+#   - https://github.com/WillPower3309/swayfx

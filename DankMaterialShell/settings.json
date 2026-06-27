@@ -122,6 +122,11 @@
       "id": "darkMode",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "idleInhibitor",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": false,
@@ -179,7 +184,13 @@
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
   "browserPickerViewMode": "grid",
-  "browserUsageHistory": {},
+  "browserUsageHistory": {
+    "firefox": {
+      "count": 3,
+      "lastUsed": 1782530821931,
+      "name": "Firefox"
+    }
+  },
   "appPickerViewMode": "grid",
   "filePickerUsageHistory": {},
   "sortAppsAlphabetically": false,
@@ -444,6 +455,11 @@
         },
         {
           "id": "cpuUsage",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
+          "id": "network_speed_monitor",
           "enabled": true
         },
         {
@@ -460,7 +476,8 @@
         },
         {
           "id": "clock",
-          "enabled": true
+          "enabled": true,
+          "clockCompactMode": true
         }
       ],
       "spacing": 0,
