@@ -1,7 +1,7 @@
 # /* ---- 💫 https://github.com/LinuxBeginnings 💫 ---- */  #
 
 # you can choose themes from $HOME/.config/kitty/kitty-themes/
-include $HOME/.config/kitty/kitty-themes/Earthsong.conf
+include ./kitty-themes/Earthsong.conf
 
 font_family FantasqueSansM Nerd Font Mono
 font_size 14.0
@@ -23,13 +23,12 @@ allow_remote_control yes
 scrollback_lines 2000
 wheel_scroll_min_lines 1
 
-enable_audio_bell yes
+enable_audio_bell no
 
 window_padding_width 4
-# selection_foreground none
-# selection_background none
 
-shell_integration enabled
+selection_foreground none
+selection_background none
 
 # # 💡 將 Kitty 的複製貼上改為 Super+C / Super+V
 # map super+c copy_to_clipboard
@@ -38,8 +37,6 @@ shell_integration enabled
 # # 💡 移除原本 Ctrl+Shift+C/V 的映射，避免按鍵習慣混淆
 # map ctrl+shift+c no_op
 # map ctrl+shift+v no_op
-
-copy_on_select yes
 
 map alt+1 goto_tab 1
 map alt+2 goto_tab 2
@@ -53,11 +50,4 @@ tab_bar_style          powerline
 tab_powerline_style    slanted
 tab_title_template     "{index}: {title}"
 
-
-
-
-
-# BEGIN_KITTY_THEME
-# VSCode_Dark
-include current-theme.conf
-# END_KITTY_THEME
+# foreground/background/cursor are set by the active theme

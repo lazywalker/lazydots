@@ -58,6 +58,6 @@ tab_title_template     "{index}: {title}"
 
 
 # BEGIN_KITTY_THEME
-# VSCode_Dark
+# VividPunk
 include current-theme.conf
 # END_KITTY_THEME
