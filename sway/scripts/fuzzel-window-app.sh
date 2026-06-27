@@ -16,9 +16,9 @@ app_id=$(swaymsg -t get_tree 2>/dev/null | jq -r '
 # Get all windows of the same app with workspace number
 entries=$(swaymsg -t get_tree 2>/dev/null | jq -r --arg app "$app_id" '
     .. | select(.type? == "workspace" and .name? != "__i3_scratch") | . as $ws |
-    recurse(.nodes[]?) |
-    select(.type? == "con" and .app_id? == $app and .name? != null) |
-    "\($ws.name) │ \(.name // "untitled")\t\(.id)"
+    recurse(.nodes[]?, .floating_nodes[]?) |
+    select((.type? == "con" or .type? == "floating_con") and .app_id? == $app and .name? != null) |
+    "\($ws.name) │ \(if .type == "floating_con" then "F " else "" end)\(.name // "untitled")\t\(.id)"
 ')
 
 [[ -n "$entries" ]] || exit 0
