@@ -186,13 +186,13 @@ bindsym $mod+a focus parent
 # ============================================================================
 # Window switching — ported from niri (Mod+Tab / Mod+Escape)
 # ============================================================================
-# rofi window switcher: shows all windows with thumbnails, type to filter
-bindsym $mod+Tab       exec rofi -show window
-bindsym $mod+Shift+Tab exec rofi -show window
+# fuzzel window switcher: all windows on workspace
+bindsym $mod+Tab       exec ~/.config/sway/scripts/fuzzel-window.sh
+bindsym $mod+Shift+Tab exec ~/.config/sway/scripts/fuzzel-window.sh
 
-# rofi window switcher: only windows of the SAME application
-bindsym $mod+Escape       exec ~/.config/sway/scripts/rofi-window-app.sh
-bindsym $mod+Shift+Escape exec ~/.config/sway/scripts/rofi-window-app.sh
+# fuzzel window switcher: only windows of the SAME application
+bindsym $mod+Escape       exec ~/.config/sway/scripts/fuzzel-window-app.sh
+bindsym $mod+Shift+Escape exec ~/.config/sway/scripts/fuzzel-window-app.sh
 
 # ==========================================================================
 # Resize mode
