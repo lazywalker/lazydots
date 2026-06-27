@@ -172,8 +172,8 @@ bindsym $mod+space   focus mode_toggle
 # ============================================================================
 # Layout — Tiling modes
 # ============================================================================
-bindsym $mod+w layout toggle tabbed
-bindsym $mod+s layout stacking
+bindsym $mod+Ctrl+t layout toggle tabbed split
+bindsym $mod+Ctrl+s layout stacking
 bindsym $mod+Ctrl+e layout toggle split
 
 # Split directions
@@ -184,6 +184,17 @@ bindsym $mod+Alt+v splitv
 bindsym $mod+a focus parent
 
 # ============================================================================
+# Window switching — ported from niri (Mod+Tab / Mod+Escape)
+# ============================================================================
+# rofi window switcher: shows all windows with thumbnails, type to filter
+bindsym $mod+Tab       exec rofi -show window
+bindsym $mod+Shift+Tab exec rofi -show window
+
+# rofi window switcher: only windows of the SAME application
+bindsym $mod+Escape       exec ~/.config/sway/scripts/rofi-window-app.sh
+bindsym $mod+Shift+Escape exec ~/.config/sway/scripts/rofi-window-app.sh
+
+# ==========================================================================
 # Resize mode
 # ============================================================================
 mode "resize" {

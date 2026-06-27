@@ -6,20 +6,14 @@
 # Default first split: splith (horizontal).
 
 set -u
-PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/dwindle-auto.pid"
 DEBUG="${DWM_DEBUG:-0}"
 log() { [[ "$DEBUG" == 1 ]] && echo "[$(date '+%H:%M:%S')] $*" >> /tmp/dwindle.log; }
 
-# Singleton: kill stale instance, then register
-if [[ -f "$PIDFILE" ]]; then
-    old_pid=$(cat "$PIDFILE" 2>/dev/null)
-    if [[ -n "$old_pid" ]] && kill -0 "$old_pid" 2>/dev/null; then
-        kill "$old_pid" 2>/dev/null
-        sleep 0.2
-    fi
-fi
-echo $$ > "$PIDFILE"
-trap 'rm -f "$PIDFILE"' EXIT
+# Singleton: kill all other instances of this script, then proceed
+for pid in $(pgrep -f "dwindle-auto.sh" 2>/dev/null); do
+    [[ "$pid" != "$$" ]] && kill "$pid" 2>/dev/null
+done
+sleep 0.2
 
 # Wait for sway socket
 for _ in $(seq 1 30); do
