@@ -56,7 +56,7 @@ bindsym $mod+Shift+t exec kitty --title kitty-theme-picker kitten themes
 bindsym Ctrl+Shift+r exec dms ipc call workspace-rename open
 
 # Hotkey overlay
-bindsym $mod+Shift+Slash exec dms ipc call hotkeys toggle
+bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
 
 # ============================================================================
 # Navigation — Focus direction
@@ -220,9 +220,14 @@ bindsym $mod+minus       scratchpad show
 # ============================================================================
 # Screenshots
 # ============================================================================
-bindsym Print      exec grim
-bindsym Ctrl+Print  exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
-bindsym Alt+Print   exec grim -g "$(slurp)"
+# bindsym Print      exec grim
+# bindsym Ctrl+Print  exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
+# bindsym Alt+Print   exec grim -g "$(slurp)"
+
+bindsym Print       exec dms screenshot
+bindsym Ctrl+Print  exec dms screenshot full
+bindsym Alt+Print   exec dms screenshot --no-file
+bindsym Ctrl+Alt+A  exec dms screenshot --stdout | swappy -f -
 
 # ============================================================================
 # Volume — PipeWire (matches niri config)
@@ -259,6 +264,9 @@ bindsym $mod+Shift+p exec swaymsg "output * power off"
 
 # Reload sway config
 bindsym $mod+Shift+r reload
+
+# run command
+bindsym $mod+Alt+d exec fuzzel --dmenu --prompt="Run command: " < <(compgen -c) | xargs -r swaymsg exec --
 
 # ============================================================================
 # Miscellaneous
