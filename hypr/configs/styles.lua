@@ -25,7 +25,9 @@ hl.config({
     },
 
     master = {
-        mfact = 0.45,
+        mfact = 0.6,
+        new_status = "slave",
+        new_on_top = false,
     },
 
     decoration = {

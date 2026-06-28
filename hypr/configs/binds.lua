@@ -55,7 +55,8 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }),
 hl.bind(mainMod .. " + W", hl.dsp.group.toggle(),
     { description = "Toggle group (tabbed column)" })
 
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"),
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(
+    "hyprctl reload && notify-send -e -u low -i preferences-system 'Hyprland' 'Config reloaded'"),
     { description = "Reload Hyprland config" })
 
 hl.bind(mainMod .. " + bracketleft", hl.dsp.window.move({ into_or_create_group = "l" }),
