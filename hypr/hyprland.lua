@@ -22,7 +22,6 @@ local base = home .. "/.config/hypr"
 dofile(base .. "/configs/styles.lua")
 dofile(base .. "/configs/exec.lua")
 dofile(base .. "/configs/binds.lua")
-dofile(base .. "/configs/layouts.lua")
 dofile(base .. "/configs/windowrules.lua")
 
 -- === User overrides (loaded last) ===

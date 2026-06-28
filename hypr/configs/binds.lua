@@ -55,6 +55,9 @@ hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }),
     { description = "Toggle floating" })
 
+hl.bind(mainMod .. " + C", hl.dsp.window.center(),
+    { description = "Center floating window" })
+
 hl.bind(mainMod .. " + W", hl.dsp.group.toggle(),
     { description = "Toggle group (tabbed column)" })
 
@@ -224,7 +227,7 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"),
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("uwsm stop"),
     { description = "Exit Hyprland (Ctrl+Alt+Del)" })
 
-hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("dms ipc call lock lock"),
+hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd("dms ipc call lock lock"),
     { description = "Lock screen" })
 
 hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"),
@@ -356,3 +359,13 @@ hl.bind(mainMod .. " + SHIFT + Escape", function()
         end
     end, { timeout = 100, type = "oneshot" })
 end, { description = "Cycle previous window of same class" })
+
+-- =========================================================================
+-- Layout cycling  with notify feedback
+-- =========================================================================
+
+-- Super+Shift+M → cycle through master → dwindle → scrolling → monocle
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/layout-cycle.sh"
+), { description = "Cycle layout (master → dwindle → scrolling → monocle)" })
+

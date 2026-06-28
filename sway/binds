@@ -35,7 +35,7 @@ bindsym $mod+O exec qs -c overview
 bindsym $mod+Q kill
 
 # Lock screen
-bindsym $mod+Alt+l exec dms ipc call lock lock
+bindsym $mod+Ctrl+Alt+l exec dms ipc call lock lock
 
 # Screen reader toggle (orca)
 bindsym $mod+Alt+s exec sh -c "pkill orca || exec orca"

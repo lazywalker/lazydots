@@ -45,4 +45,4 @@ delta_x=$(bc <<< "$target_w - $win_w")
 # Resize by delta (relative)
 hyprctl eval "hl.dispatch(hl.dsp.window.resize({ x = ${delta_x}, y = 0, relative = true, window = \"address:${addr}\" }))" >/dev/null 2>&1
 
-notify-send -e -u low -i preferences-system "Window Width: ${next}" "$(bc <<< "scale=0; $next * 100 / 1")% of screen"
+#notify-send -e -u low -i preferences-system "Window Width: ${next}" "$(bc <<< "scale=0; $next * 100 / 1")% of screen"
