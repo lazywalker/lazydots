@@ -194,16 +194,34 @@ hl.bind("ALT + X", hl.dsp.focus({ workspace = "previous" }),
 -- Window Sizing
 -- =========================================================================
 
-hl.bind(mainMod .. " + minus", hl.dsp.window.resize({ x = -50, y = 0 }),
+hl.bind(mainMod .. " + minus", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
     { description = "Decrease window width" })
-hl.bind(mainMod .. " + equal", hl.dsp.window.resize({ x = 50, y = 0 }),
+hl.bind(mainMod .. " + equal", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
     { description = "Increase window width" })
-hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50 }),
+hl.bind(mainMod .. " + SHIFT + minus", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
     { description = "Decrease window height" })
-hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }),
+hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
     { description = "Increase window height" })
-hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.resize({ x = 500, y = 0 }),
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.resize({ x = 500, y = 0, relative = true }),
     { description = "Expand column width" })
+
+hl.bind(mainMod .. " + ALT + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
+    { description = "Resize window left" })
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
+    { description = "Resize window right" })
+hl.bind(mainMod .. " + ALT + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
+    { description = "Resize window up" })
+hl.bind(mainMod .. " + ALT + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
+    { description = "Resize window down" })
+
+hl.bind(mainMod .. " + ALT + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
+    { description = "Resize window left (vim)" })
+hl.bind(mainMod .. " + ALT + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
+    { description = "Resize window right (vim)" })
+hl.bind(mainMod .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
+    { description = "Resize window up (vim)" })
+hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
+    { description = "Resize window down (vim)" })
 
 -- =========================================================================
 -- Screenshots
