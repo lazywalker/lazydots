@@ -646,6 +646,8 @@ binds {
     Ctrl+Print hotkey-overlay-title="Take a screenshot-screen" { screenshot-screen; }
     Alt+Print hotkey-overlay-title="Take a screenshot-window" { screenshot-window; }
 
+    Ctrl+Alt+A hotkey-overlay-title="Screenshot + Edit" { spawn-sh "dms screenshot --stdout | swappy -f -"; }
+
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
     // so they may, for example, forward the key presses as-is to a remote machine.
@@ -665,6 +667,8 @@ binds {
     Mod+Shift+P hotkey-overlay-title="Power off monitors" { power-off-monitors; }
 
     Mod+Alt+P hotkey-overlay-title="Power Menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
+
+    Mod+Alt+D hotkey-overlay-title="Run Command" { spawn-sh "compgen -c | fuzzel --dmenu --prompt='Run command: ' | xargs -r -I{} sh -c 'exec {}'"; }
 
     // for 68 keys keyboard
     Shift+Escape { spawn "wtype" "~"; }

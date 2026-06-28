@@ -1,0 +1,9 @@
+-- =========================================================================
+-- UserConfigs/binds.lua — User overrides for keybindings
+--
+-- These load AFTER configs/binds.lua — use to add or override binds.
+--
+-- Examples:
+--   hl.bind("SUPER + F4", hl.dsp.exec_cmd("alacritty"))
+--   hl.bind("SUPER + SHIFT + X", hl.dsp.exec_cmd("killall waybar; waybar"))
+-- =========================================================================
