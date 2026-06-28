@@ -29,7 +29,7 @@ hl.config({
     },
 
     decoration = {
-        rounding = 10,
+        rounding = 4,
 
         blur = {
             enabled = true,
