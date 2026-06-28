@@ -64,6 +64,11 @@ exec_always /home/mic/.config/sway/scripts/dwindle-auto.sh
 #
 # You can also configure each device individually.
 # Read `man 5 sway-input` for more information about this section.
+input "76:617:mic's_Magic_Mouse2" {
+    natural_scroll enabled
+    pointer_accel -0.4
+    accel_profile adaptive
+}
 
 ### Key bindings
 # All keybinds are defined in binds.conf (ported from niri/config.kdl)

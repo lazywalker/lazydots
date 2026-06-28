@@ -127,6 +127,11 @@
       "id": "idleInhibitor",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "colorPicker",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": false,
@@ -186,8 +191,8 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "firefox": {
-      "count": 4,
-      "lastUsed": 1782543785343,
+      "count": 6,
+      "lastUsed": 1782564831146,
       "name": "Firefox"
     }
   },
@@ -268,7 +273,11 @@
   "fadeToDpmsGracePeriod": 5,
   "launchPrefix": "",
   "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
+  "wifiNetworkPins": {
+    "preferredWifi": [
+      "mydefault"
+    ]
+  },
   "bluetoothDevicePins": {},
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
