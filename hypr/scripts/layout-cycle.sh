@@ -52,8 +52,26 @@ if [[ "$target" == "monocle" ]]; then
         ws=$((ws + 1))
         sleep 0.05
     done
+elif [[ "$current" == "monocle" ]]; then
+    # Leaving monocle: remove the auto-workspace rule
+    hyprctl eval 'hl.window_rule({ name = "monocle-auto-ws", match = { class = ".*" }, workspace = "unset" })' >/dev/null 2>&1
+
+    # Collect all non-floating windows from all workspaces, group max 3 per workspace
+    all_windows=$(hyprctl clients -j 2>/dev/null | jq -r '
+        [.[] | select(.floating == false)] | sort_by(.at[0]) | .[].address')
+    ws=1
+    count=0
+    for addr in $all_windows; do
+        hyprctl eval "hl.dispatch(hl.dsp.window.move({ workspace = ${ws}, window = \"address:${addr}\" }))" >/dev/null 2>&1
+        count=$((count + 1))
+        if [[ $count -ge 3 ]]; then
+            count=0
+            ws=$((ws + 1))
+        fi
+        sleep 0.05
+    done
 else
-    # Remove monocle window rule
+    # Not monocle transition: just remove the rule if switching between non-monocle layouts
     hyprctl eval 'hl.window_rule({ name = "monocle-auto-ws", match = { class = ".*" }, workspace = "unset" })' >/dev/null 2>&1
 fi
 actual=$(get_layout)
