@@ -46,6 +46,9 @@ bindsym $mod+Alt+p exec dms ipc call powermenu toggle
 # Toggle status bar (DMS)
 bindsym $mod+Alt+b exec dms ipc call bar toggleAutoHide index 0
 
+# Bluetooth settings via Overskride
+bindsym $mod+Shift+b exec overskride
+
 # Next wallpaper (DMS)
 bindsym $mod+Shift+w exec dms ipc call wallpaper next
 

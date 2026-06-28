@@ -681,6 +681,9 @@ binds {
     // Toggle DankBar
     "Mod+Alt+B" hotkey-overlay-title="Toggle Status Bar" { spawn "dms" "ipc" "call" "bar" "toggleAutoHide" "index" "0"; }
 
+    // Bluetooth settings
+    "Mod+Shift+B" hotkey-overlay-title="Bluetooth Settings" { spawn "overskride"; }
+
     // Next wallpaper
     "Mod+Shift+W" hotkey-overlay-title="Next Wallpaper" { spawn "dms" "ipc" "call" "wallpaper" "next"; }
 

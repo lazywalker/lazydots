@@ -185,6 +185,9 @@ hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"
 -- Toggle status bar
 hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("dms ipc call bar toggleAutoHide index 0"))
 
+-- Bluetooth settings via Overskride
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("overskride"))
+
 -- Next wallpaper
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("dms ipc call wallpaper next"))
 
