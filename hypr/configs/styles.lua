@@ -61,4 +61,9 @@ hl.config({
         disable_splash_rendering = true,
         vrr = 0,
     },
+
+    -- Prevent apps (sdl-freerdp3, VMs, etc.) from capturing global keybinds
+    binds = {
+        disable_keybind_grabbing = true,
+    },
 })

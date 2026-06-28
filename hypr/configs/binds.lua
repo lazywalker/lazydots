@@ -265,3 +265,16 @@ hl.bind("SHIFT + Escape", hl.dsp.exec_cmd("wtype ~"))
 hl.bind(mainMod .. " + SHIFT + slash", hl.dsp.exec_cmd(
     [[notify-send "Hyprland" "Binds → ~/.config/hypr/configs/binds.lua"]]
 ))
+
+-- =========================================================================
+-- Window Switcher (Niri: recent-windows { Mod+Tab, Mod+Escape })
+-- =========================================================================
+
+-- Super+Tab → toggle between current and last focused window (cross-workspace)
+hl.bind(mainMod .. " + Tab", hl.dsp.focus({ last = true }))
+
+-- Super+Escape → cycle next window within same class (cross-workspace)
+hl.bind(mainMod .. " + Escape", hl.dsp.window.cycle_next())
+
+-- Super+Shift+Escape → cycle previous window within same class
+hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.window.cycle_next({ next = false }))
