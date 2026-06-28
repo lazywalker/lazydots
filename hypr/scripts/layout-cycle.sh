@@ -39,7 +39,23 @@ else
     hyprctl eval "hl.config({ general = { gaps_out = { top = 14, right = 6, bottom = 6, left = 6 } } })" >/dev/null 2>&1
 fi
 
-# Verify and notify
+# Monocle layout: move each window to its own workspace, auto-spawn to new workspace
+if [[ "$target" == "monocle" ]]; then
+    # Install window rule: new windows go to the next empty workspace
+    hyprctl eval 'hl.window_rule({ name = "monocle-auto-ws", match = { class = ".*" }, workspace = "emptym" })' >/dev/null 2>&1
+
+    # Move each existing window to its own workspace
+    ws=1
+    hyprctl clients -j 2>/dev/null | jq -r '
+        [.[] | select(.floating == false)] | sort_by(.at[0]) | .[].address' | while read -r addr; do
+        hyprctl eval "hl.dispatch(hl.dsp.window.move({ workspace = ${ws}, window = \"address:${addr}\" }))" >/dev/null 2>&1
+        ws=$((ws + 1))
+        sleep 0.05
+    done
+else
+    # Remove monocle window rule
+    hyprctl eval 'hl.window_rule({ name = "monocle-auto-ws", match = { class = ".*" }, workspace = "unset" })' >/dev/null 2>&1
+fi
 actual=$(get_layout)
 if [[ "$actual" == "$target" ]]; then
     notify-send -e -u low -i preferences-system "${target^} Layout" "Switched to ${target} layout"
