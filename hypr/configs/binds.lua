@@ -259,7 +259,7 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- =========================================================================
 
 -- Tilde on 68-key keyboard (Niri: Shift+Escape)
-hl.bind("SHIFT + Escape", hl.dsp.exec_cmd("wtype ~"))
+hl.bind("SHIFT + Escape", hl.dsp.exec_cmd("wtype \'~\'"))
 
 -- Show hotkey overlay
 hl.bind(mainMod .. " + SHIFT + slash", hl.dsp.exec_cmd(
@@ -273,8 +273,33 @@ hl.bind(mainMod .. " + SHIFT + slash", hl.dsp.exec_cmd(
 -- Super+Tab → toggle between current and last focused window (cross-workspace)
 hl.bind(mainMod .. " + Tab", hl.dsp.focus({ last = true }))
 
--- Super+Escape → cycle next window within same class (cross-workspace)
-hl.bind(mainMod .. " + Escape", hl.dsp.window.cycle_next())
+-- Super+Escape → cycle next window of same class (cross-workspace)
+hl.bind(mainMod .. " + Escape", function()
+    -- Run shell script to compute target address → /tmp/hypr-cycle-class-target
+    hl.exec_cmd("~/.config/hypr/scripts/cycle-class.sh")
+    hl.timer(function()
+        local f = io.open("/tmp/hypr-cycle-class-target", "r")
+        if f then
+            local addr = f:read("*l")
+            f:close()
+            if addr and addr ~= "" then
+                hl.dispatch(hl.dsp.focus({ window = "address:" .. addr }))
+            end
+        end
+    end, { timeout = 100, type = "oneshot" })
+end)
 
--- Super+Shift+Escape → cycle previous window within same class
-hl.bind(mainMod .. " + SHIFT + Escape", hl.dsp.window.cycle_next({ next = false }))
+-- Super+Shift+Escape → cycle previous window of same class
+hl.bind(mainMod .. " + SHIFT + Escape", function()
+    hl.exec_cmd("~/.config/hypr/scripts/cycle-class.sh prev")
+    hl.timer(function()
+        local f = io.open("/tmp/hypr-cycle-class-target", "r")
+        if f then
+            local addr = f:read("*l")
+            f:close()
+            if addr and addr ~= "" then
+                hl.dispatch(hl.dsp.focus({ window = "address:" .. addr }))
+            end
+        end
+    end, { timeout = 100, type = "oneshot" })
+end)
