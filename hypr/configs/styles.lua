@@ -66,6 +66,10 @@ hl.config({
         },
     },
 
+    scrolling = {
+        fullscreen_on_one_column = false,
+    },
+
     misc = {
         disable_hyprland_logo   = true,
         disable_splash_rendering = true,
