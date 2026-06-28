@@ -40,21 +40,29 @@ hl.config({
         },
 
         -- Niri shadow (disabled for Mac mini 2014 performance)
-        -- shadow = {
-        --     enabled      = true,
-        --     range        = 30,
-        --     render_power = 3,
-        --     offset       = { 0, 5 },
-        --     color        = 0xee1a1a1a,
-        -- },
+        shadow = {
+            enabled      = false,
+            range        = 10,
+            render_power = 3,
+            offset       = { 0, 5 },
+            color        = 0xee1a1a1a,
+        },
     },
 
     group = {
         groupbar = {
             enabled       = true,
-            font_size     = 11,
-            gradients     = false,
+            height        = 18,
+            font_size     = 12,
+            gradients     = true,
             render_titles = true,
+            stacked       = false,
+            text_color          = 0xffffffff,
+            text_color_inactive = 0xaacccccc,
+            -- col = {
+            --     active   = 0xff555555,
+            --     inactive = 0xff333333,
+            -- },
         },
     },
 
