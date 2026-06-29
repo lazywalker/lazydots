@@ -237,6 +237,26 @@ hl.bind("CTRL + ALT + A", hl.dsp.exec_cmd("dms screenshot --stdout | swappy -f -
     { description = "Screenshot + open in swappy editor" })
 
 -- =========================================================================
+-- Screen Recording
+-- =========================================================================
+
+hl.bind("CTRL + SHIFT + bracketleft", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/screen-record.sh full"),
+    { description = "Start fullscreen recording (VAAPI H.264)" })
+
+hl.bind("CTRL + ALT + bracketleft", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/screen-record.sh region"),
+    { description = "Start region recording (VAAPI H.264)" })
+
+hl.bind("CTRL + SHIFT + bracketright", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/screen-record.sh stop"),
+    { description = "Stop screen recording (Ctrl+Shift+])" })
+
+hl.bind("CTRL + ALT + bracketright", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/screen-record.sh stop"),
+    { description = "Stop screen recording (Ctrl+Alt+])" })
+
+-- =========================================================================
 -- System & Power
 -- =========================================================================
 

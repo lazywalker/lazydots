@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-RATIOS=(0.3 0.4 0.5 0.6)
+RATIOS=(0.4 0.5 0.6)
 
 layout=$(hyprctl -j getoption general:layout 2>/dev/null | jq -r '.str')
 if [[ "$layout" == "monocle" ]]; then
