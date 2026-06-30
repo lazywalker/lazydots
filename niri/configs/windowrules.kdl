@@ -1,0 +1,26 @@
+// niri configs/windowrules.kdl — Window rules
+// Work around WezTerm's initial configure bug
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Firefox PiP floating
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Loupe (image viewer) floating
+window-rule {
+    match app-id=r#"^org\.gnome\.Loupe$"#
+    open-floating true
+}
+
+// Kitty theme picker floating
+window-rule {
+    match title="kitty-theme-picker"
+    default-column-width { fixed 800; }
+    default-window-height { fixed 500; }
+    open-floating true
+}

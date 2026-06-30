@@ -1,0 +1,23 @@
+// niri configs/input.kdl — Input device configuration
+input {
+    keyboard {
+        xkb {
+            // If empty, niri fetches xkb settings from org.freedesktop.locale1
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        natural-scroll
+        accel-speed -0.5
+    }
+
+    trackpoint {
+        // off
+    }
+}
