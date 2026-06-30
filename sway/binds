@@ -232,6 +232,12 @@ bindsym Ctrl+Print  exec dms screenshot full
 bindsym Alt+Print   exec dms screenshot --no-file
 bindsym Ctrl+Alt+A  exec dms screenshot --stdout | swappy -f -
 
+# Screen recording (reuse Hyprland script)
+bindsym Ctrl+Shift+bracketleft  exec ~/.config/hypr/scripts/screen-record.sh full
+bindsym Ctrl+Alt+bracketleft    exec ~/.config/hypr/scripts/screen-record.sh region
+bindsym Ctrl+Shift+bracketright exec ~/.config/hypr/scripts/screen-record.sh stop
+bindsym Ctrl+Alt+bracketright   exec ~/.config/hypr/scripts/screen-record.sh stop
+
 # ============================================================================
 # Volume — PipeWire (matches niri config)
 # ============================================================================

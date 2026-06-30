@@ -648,6 +648,12 @@ binds {
 
     Ctrl+Alt+A hotkey-overlay-title="Screenshot + Edit" { spawn-sh "dms screenshot --stdout | swappy -f -"; }
 
+    // Screen recording (reuse Hyprland script)
+    Ctrl+Shift+bracketleft  hotkey-overlay-title="Record fullscreen" { spawn-sh "~/.config/hypr/scripts/screen-record.sh full"; }
+    Ctrl+Alt+bracketleft    hotkey-overlay-title="Record region"    { spawn-sh "~/.config/hypr/scripts/screen-record.sh region"; }
+    Ctrl+Shift+bracketright hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
+    Ctrl+Alt+bracketright   hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
+
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
     // so they may, for example, forward the key presses as-is to a remote machine.
