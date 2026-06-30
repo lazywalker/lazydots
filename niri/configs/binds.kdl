@@ -221,6 +221,7 @@ binds {
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
     Alt+X { focus-workspace-previous; }
+    Mod+X { focus-workspace-previous; }
 
     // =========================================================================
     // Column / Window Management

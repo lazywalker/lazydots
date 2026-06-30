@@ -189,6 +189,8 @@ hl.bind(mainMod .. " + CTRL + I", hl.dsp.window.move({ workspace = "e+1" }),
 
 hl.bind("ALT + X", hl.dsp.focus({ workspace = "previous" }),
     { description = "Switch to previous workspace" })
+hl.bind(mainMod .. " + X", hl.dsp.focus({ workspace = "previous" }),
+    { description = "Switch to previous workspace (Mod+X)" })
 
 -- =========================================================================
 -- Window Sizing

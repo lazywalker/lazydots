@@ -157,6 +157,7 @@ bindsym $mod+Shift+i         move workspace to output left
 
 # Workspace back-and-forth (niri: Alt+X → focus-workspace-previous)
 bindsym Alt+x workspace back_and_forth
+bindsym $mod+x workspace back_and_forth
 
 # ============================================================================
 # Layout — Fullscreen
