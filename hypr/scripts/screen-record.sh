@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Screen recording controller: fullscreen, region, or stop
 # Usage: screen-record.sh [full|region|stop]
+# MacMini 2014 Depends: sudo pacman -S --needed libva-intel-driver libva-utils slurp
 
 set -e
 
