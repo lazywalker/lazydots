@@ -14,13 +14,21 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    // =========================================================================
+    // Application Launchers
+    // =========================================================================
 
-    Mod+E hotkey-overlay-title="Open File Manager: Thunar" { spawn "thunar"; }
-    Mod+B hotkey-overlay-title="Open Web Browser: Firefox" { spawn "firefox"; }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+E hotkey-overlay-title="Open File Manager: Thunar" { spawn "thunar"; }
+    Mod+B hotkey-overlay-title="Open Web Browser: Firefox" { spawn "firefox"; }
     Mod+D allow-when-locked=false hotkey-overlay-title="Run an Application: DMS Launcher" { spawn "dms" "ipc" "call" "launcher" "toggle"; }
+    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+
+    // =========================================================================
+    // Lock Screen & Accessibility
+    // =========================================================================
+
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Ctrl+Alt+L allow-when-locked=true hotkey-overlay-title="Lock the Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
 
@@ -28,6 +36,10 @@ binds {
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
+
+    // =========================================================================
+    // Media & Volume Keys
+    // =========================================================================
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
@@ -51,12 +63,20 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
+    // =========================================================================
+    // Overview & Window Close
+    // =========================================================================
+
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
+
+    // =========================================================================
+    // Focus Navigation
+    // =========================================================================
 
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
@@ -66,6 +86,10 @@ binds {
     Mod+J     { focus-window-down; }
     Mod+K     { focus-window-up; }
     Mod+L     { focus-column-right; }
+
+    // =========================================================================
+    // Move Window / Column
+    // =========================================================================
 
     Mod+Ctrl+Left  { move-column-left; }
     Mod+Ctrl+Down  { move-window-down; }
@@ -87,6 +111,10 @@ binds {
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
     Mod+Ctrl+End  { move-column-to-last; }
+
+    // =========================================================================
+    // Monitor Navigation
+    // =========================================================================
 
     Mod+Shift+Left  { focus-monitor-left; }
     Mod+Shift+Down  { focus-monitor-down; }
@@ -114,6 +142,10 @@ binds {
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
     // ...
 
+    // =========================================================================
+    // Workspace Navigation
+    // =========================================================================
+
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
@@ -132,12 +164,9 @@ binds {
     Mod+Shift+U         { move-workspace-down; }
     Mod+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
+    // =========================================================================
+    // Mouse Wheel — Workspace & Focus
+    // =========================================================================
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
@@ -164,14 +193,9 @@ binds {
     // Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
     // Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
 
-    // You can refer to workspaces by index. However, keep in mind that
-    // niri is a dynamic workspace system, so these commands are kind of
-    // "best effort". Trying to refer to a workspace index bigger than
-    // the current workspace count will instead refer to the bottommost
-    // (empty) workspace.
-    //
-    // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
-    // will all refer to the 3rd workspace.
+    // =========================================================================
+    // Workspace Switching by Number
+    // =========================================================================
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -198,6 +222,9 @@ binds {
     // Mod+Tab { focus-workspace-previous; }
     Alt+X { focus-workspace-previous; }
 
+    // =========================================================================
+    // Column / Window Management
+    // =========================================================================
     // Super+Tab { toggle-overview; }
 
     // The following binds move the focused window in and out of a column.
@@ -261,6 +288,10 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
+    // =========================================================================
+    // Layout Switching
+    // =========================================================================
+
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
     // a matching layout switch hotkey configured in xkb options above.
@@ -269,11 +300,19 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
+    // =========================================================================
+    // Screenshots
+    // =========================================================================
+
     Print { screenshot; }
     Ctrl+Print hotkey-overlay-title="Take a screenshot-screen" { screenshot-screen; }
     Alt+Print hotkey-overlay-title="Take a screenshot-window" { screenshot-window; }
 
     Ctrl+Alt+S hotkey-overlay-title="Screenshot + Edit" { spawn-sh "dms screenshot --stdout | swappy -f -"; }
+
+    // =========================================================================
+    // Screen Recording
+    // =========================================================================
 
     // Screen recording (reuse Hyprland script)
     Ctrl+Shift+bracketleft  hotkey-overlay-title="Record fullscreen" { spawn-sh "~/.config/hypr/scripts/screen-record.sh full"; }
@@ -281,15 +320,9 @@ binds {
     Ctrl+Shift+bracketright hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
     Ctrl+Alt+bracketright   hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
 
-    // Applications such as remote-desktop clients and software KVM switches may
-    // request that niri stops processing the keyboard shortcuts defined here
-    // so they may, for example, forward the key presses as-is to a remote machine.
-    // It's a good idea to bind an escape hatch to toggle the inhibitor,
-    // so a buggy application can't hold your session hostage.
-    //
-    // The allow-inhibiting=false property can be applied to other binds as well,
-    // which ensures niri always processes them, even when an inhibitor is active.
-    // Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // =========================================================================
+    // System & Power
+    // =========================================================================
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
@@ -303,13 +336,24 @@ binds {
 
     Mod+Alt+D hotkey-overlay-title="Run Command" { spawn-sh "compgen -c | fuzzel --dmenu --prompt='Run command: ' | xargs -r -I{} sh -c 'exec {}'"; }
 
+    // =========================================================================
+    // Miscellaneous
+    // =========================================================================
+
     // for 68 keys keyboard
     Shift+Escape { spawn "wtype" "~"; }
 
-    // === Workspace Management ===
+    // =========================================================================
+    // Workspace Management
+    // =========================================================================
+
     Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" {
         spawn "dms" "ipc" "call" "workspace-rename" "open";
     }
+
+    // =========================================================================
+    // Desktop Controls
+    // =========================================================================
 
     // Toggle DankBar
     "Mod+Alt+B" hotkey-overlay-title="Toggle Status Bar" { spawn "dms" "ipc" "call" "bar" "toggleAutoHide" "index" "0"; }
