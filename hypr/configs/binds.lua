@@ -233,7 +233,7 @@ hl.bind("CTRL + Print", hl.dsp.exec_cmd("dms screenshot --no-file"),
     { description = "Take screenshot to clipboard" })
 hl.bind("ALT + Print", hl.dsp.exec_cmd("dms screenshot --window"),
     { description = "Take screenshot of active window" })
-hl.bind("CTRL + ALT + A", hl.dsp.exec_cmd("dms screenshot --stdout | swappy -f -"),
+hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("dms screenshot --stdout | swappy -f -"),
     { description = "Screenshot + open in swappy editor" })
 
 -- =========================================================================

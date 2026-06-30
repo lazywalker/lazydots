@@ -1,6 +1,8 @@
 // niri configs/windowlist.kdl — Recent windows / Alt-Tab settings
 recent-windows {
+    // off
     debounce-ms 750
+
     open-delay-ms 150
 
     highlight {
@@ -16,6 +18,11 @@ recent-windows {
     }
 
     binds {
+        // Alt+Tab         { next-window; }
+        // Alt+Shift+Tab   { previous-window; }
+        // Alt+Escape       { next-window     filter="app-id"; }
+        // Alt+Shift+grave { previous-window filter="app-id"; }
+
         Mod+Tab         { next-window; }
         Mod+Shift+Tab   { previous-window; }
         Mod+Escape       { next-window     filter="app-id"; }
