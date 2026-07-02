@@ -1,0 +1,65 @@
+# Noctalia-specific keybindings for Sway
+# Replace binds.dms with this file to switch to Noctalia shell
+# Source: include binds.noctalia
+
+set $ncl noctalia msg
+
+# App launcher (Noctalia)
+bindsym $mod+d exec $ncl panel-toggle launcher
+
+# Lock screen (Noctalia)
+bindsym $mod+Ctrl+Alt+l exec $ncl session lock
+
+# Power menu (Noctalia — session actions via fuzzel)
+bindsym $mod+Alt+p exec fuzzel --dmenu --prompt="Power: " <<< $'Lock\nLogout\nSuspend\nReboot\nShutdown' | xargs -r -I{} sh -c 'case "{}" in Lock) noctalia msg session lock;; Logout) noctalia msg session logout;; Suspend) noctalia msg session suspend;; Reboot) noctalia msg session reboot;; Shutdown) noctalia msg session shutdown;; esac'
+
+# Toggle status bar (Noctalia — not directly available, placeholder)
+# bindsym $mod+Alt+b exec ...
+
+# Next wallpaper (Noctalia)
+bindsym $mod+Shift+w exec $ncl wallpaper-random
+
+# Rename workspace (Noctalia — no direct IPC, use fuzzel fallback)
+bindsym Ctrl+Shift+r exec fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} swaymsg rename workspace to "{}"
+
+# Window switcher (Noctalia)
+unbindsym $mod+Tab
+unbindsym $mod+Shift+Tab
+bindsym $mod+Tab       exec $ncl window-switcher
+bindsym $mod+Shift+Tab exec $ncl window-switcher
+
+# Screenshots (Noctalia)
+bindsym Print       exec $ncl screenshot-region
+bindsym Ctrl+Print  exec $ncl screenshot-fullscreen
+bindsym Alt+Print   exec $ncl screenshot-fullscreen pick
+bindsym Ctrl+Alt+S  exec $ncl screenshot-region
+
+# Media & Volume Keys (Noctalia)
+unbindsym --locked XF86AudioRaiseVolume
+unbindsym --locked XF86AudioLowerVolume
+unbindsym --locked XF86AudioMute
+unbindsym --locked XF86AudioMicMute
+bindsym --locked XF86AudioRaiseVolume exec $ncl volume-up
+bindsym --locked XF86AudioLowerVolume exec $ncl volume-down
+bindsym --locked XF86AudioMute        exec $ncl volume-mute
+bindsym --locked XF86AudioMicMute     exec $ncl mic-mute
+
+unbindsym --locked XF86AudioPlay
+unbindsym --locked XF86AudioPause
+unbindsym --locked XF86AudioStop
+unbindsym --locked XF86AudioPrev
+unbindsym --locked XF86AudioNext
+bindsym --locked XF86AudioPlay  exec $ncl media toggle
+bindsym --locked XF86AudioPause exec $ncl media toggle
+bindsym --locked XF86AudioStop  exec $ncl media stop
+bindsym --locked XF86AudioPrev  exec $ncl media previous
+bindsym --locked XF86AudioNext  exec $ncl media next
+
+unbindsym --locked XF86MonBrightnessUp
+unbindsym --locked XF86MonBrightnessDown
+bindsym --locked XF86MonBrightnessUp   exec $ncl brightness-up
+bindsym --locked XF86MonBrightnessDown exec $ncl brightness-down
+
+# Monitor power (Noctalia)
+#unbindsym $mod+Shift+p
+#bindsym $mod+Shift+p exec $ncl dpms-off

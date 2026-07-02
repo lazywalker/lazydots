@@ -1,0 +1,27 @@
+# DMS-specific keybindings for Sway
+# Replace this file to switch to a different desktop shell (e.g., binds.noctalia)
+# Source: include binds.dms
+
+# App launcher (DMS)
+bindsym $mod+d exec dms ipc call launcher toggle
+
+# Lock screen (DMS)
+bindsym $mod+Ctrl+Alt+l exec dms ipc call lock lock
+
+# Power menu (DMS)
+bindsym $mod+Alt+p exec dms ipc call powermenu toggle
+
+# Toggle status bar (DMS)
+bindsym $mod+Alt+b exec dms ipc call bar toggleAutoHide index 0
+
+# Next wallpaper (DMS)
+bindsym $mod+Shift+w exec dms ipc call wallpaper next
+
+# Rename workspace (DMS)
+bindsym Ctrl+Shift+r exec dms ipc call workspace-rename open
+
+# Screenshots (DMS)
+bindsym Print       exec dms screenshot
+bindsym Ctrl+Print  exec dms screenshot full
+bindsym Alt+Print   exec dms screenshot --no-file
+bindsym Ctrl+Alt+S  exec dms screenshot --stdout | swappy -f -

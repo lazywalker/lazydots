@@ -13,6 +13,11 @@
 #   toggle-column-tabbed-display   → layout toggle tabbed
 #   maximize-column / fullscreen   → fullscreen toggle
 #   toggle-window-floating         → floating toggle
+#
+# Desktop shell integration: include one of the following:
+#   include binds.dms     — DankMaterialShell (default)
+#   include binds.noctalia — Noctalia shell (future)
+
 
 ### Variables
 set $mod Mod4
@@ -28,35 +33,28 @@ set $term kitty
 bindsym $mod+Return exec $term
 bindsym $mod+e exec thunar
 bindsym $mod+b exec firefox
-bindsym $mod+d exec dms ipc call launcher toggle
+# $mod+d → see binds.dms (DMS launcher)
 bindsym $mod+O exec qs -c overview
 
 # Close/kill window
 bindsym $mod+Q kill
 
-# Lock screen
-bindsym $mod+Ctrl+Alt+l exec dms ipc call lock lock
+# Lock screen → see binds.dms
 
 # Screen reader toggle (orca)
 bindsym $mod+Alt+s exec sh -c "pkill orca || exec orca"
 
-# Power menu (DMS)
-bindsym $mod+Alt+p exec dms ipc call powermenu toggle
-
-# Toggle status bar (DMS)
-bindsym $mod+Alt+b exec dms ipc call bar toggleAutoHide index 0
+# Power menu, bar toggle, wallpaper, workspace rename → see binds.dms
 
 # Bluetooth settings via Overskride
 bindsym $mod+Shift+b exec overskride
 
-# Next wallpaper (DMS)
-bindsym $mod+Shift+w exec dms ipc call wallpaper next
+# Next wallpaper → see binds.dms
 
 # Kitty theme picker
 bindsym $mod+Shift+t exec kitty --title kitty-theme-picker kitten themes
 
-# Rename workspace (DMS)
-bindsym Ctrl+Shift+r exec dms ipc call workspace-rename open
+# Rename workspace → see binds.dms
 
 # Hotkey overlay
 bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
@@ -221,17 +219,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus       scratchpad show
 
-# ============================================================================
-# Screenshots
-# ============================================================================
-# bindsym Print      exec grim
-# bindsym Ctrl+Print  exec grim -o "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')"
-# bindsym Alt+Print   exec grim -g "$(slurp)"
-
-bindsym Print       exec dms screenshot
-bindsym Ctrl+Print  exec dms screenshot full
-bindsym Alt+Print   exec dms screenshot --no-file
-bindsym Ctrl+Alt+S  exec dms screenshot --stdout | swappy -f -
+# Screenshots → see binds.dms
 
 # Screen recording (reuse Hyprland script)
 bindsym Ctrl+Shift+bracketleft  exec ~/.config/hypr/scripts/screen-record.sh full
@@ -286,3 +274,6 @@ bindsym Shift+Escape exec wtype "~"
 
 # Floating modifier (drag with mouse + $mod)
 floating_modifier $mod normal
+
+include binds.noctalia
+

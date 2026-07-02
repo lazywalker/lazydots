@@ -13,7 +13,7 @@
 # ============================================================================
 # Gaps — from niri layout { gaps 12; struts { left 16; right 16; } }
 # ============================================================================
-gaps inner 12
+gaps inner 8
 gaps outer 0
 # niri struts act as side-specific outer gaps; sway only supports uniform outer
 # Use smart_gaps to hide gaps when only one window on workspace (niri column behavior)
