@@ -69,6 +69,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-2" ]
 
 [shell]
 settings_show_advanced = true
+ui_scale = 1.1000000089406967
 
     [shell.panel]
     control_center_placement = "floating"
@@ -99,13 +100,13 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
+    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
+    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
+    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
 
 [widget.network]
 show_label = false

@@ -361,5 +361,5 @@ binds {
     "Mod+Shift+T" hotkey-overlay-title="kitty-theme-picker" { spawn "kitty" "--title" "kitty-theme-picker" "kitten" "themes"; }
 
     // Window switcher (Noctalia)
-    Mod+Tab hotkey-overlay-title="Window Switcher" { spawn-sh "noctalia msg window-switcher"; }
+    // Mod+Tab hotkey-overlay-title="Window Switcher" { spawn-sh "noctalia msg window-switcher"; }
 }
