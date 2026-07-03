@@ -21,9 +21,8 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs -c overview"),
 hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd(ncl .. " session lock"),
     { description = "Lock screen" })
 
--- Power menu (fuzzel + Noctalia session actions)
-hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd(
-    [[sh -c 'printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | fuzzel --dmenu --prompt="Power: " | xargs -r -I{} sh -c 'case "{}" in Lock) noctalia msg session lock;; Logout) noctalia msg session logout;; Suspend) noctalia msg session suspend;; Reboot) noctalia msg session reboot;; Shutdown) noctalia msg session shutdown;; esac'']]),
+-- Power menu (Noctalia native)
+hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd(ncl .. " panel-toggle session"),
     { description = "Power menu" })
 
 -- Toggle status bar auto-hide (Noctalia bar toggle placeholder)
@@ -50,6 +49,6 @@ hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd(
     "slurp | grim -g - - | swappy -f -"),
     { description = "Screenshot region + edit in swappy" })
 
--- Window switcher
+-- Window switcher (Noctalia)
 hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(ncl .. " window-switcher"),
     { description = "Window switcher" })

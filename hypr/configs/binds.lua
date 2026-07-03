@@ -276,11 +276,9 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("overskride"),
 
 -- $mod+Shift+W / Ctrl+Shift+R → see binds.dms.lua or binds.noctalia.lua
 
-hl.bind(mainMod .. " + SHIFT + P", function()
-    hl.timer(function()
-        hl.dispatch(hl.dsp.dpms({ action = "disable" }))
-    end, { timeout = 500, type = "oneshot" })
-end, { description = "Power off monitors (DPMS)" })
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(
+    "~/.config/hypr/scripts/screen-off.sh"),
+    { description = "Power off monitors (move mouse or press any key to wake)" })
 
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("pkill orca || exec orca"),
     { description = "Toggle screen reader (Orca)" })

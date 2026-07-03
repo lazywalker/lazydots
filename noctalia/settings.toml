@@ -34,6 +34,17 @@ widget_spacing = 3
     opacity = 1.0
     padding = 6.0
 
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
 [location]
 auto_locate = true
 
@@ -100,13 +111,13 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
+    path = "/home/mic/Pictures/wallpapers/Study-table.png"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
+    path = "/home/mic/Pictures/wallpapers/Study-table.png"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Anime-Purple-eyes.png"
+    path = "/home/mic/Pictures/wallpapers/Study-table.png"
 
 [widget.network]
 show_label = false
