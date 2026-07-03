@@ -4,6 +4,8 @@
 // https://niri-wm.github.io/niri/Configuration:-Input
 
 input {
+    // focus-follows-mouse
+
     keyboard {
         xkb {
             // You can set rules, model, layout, variant and options.
