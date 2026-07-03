@@ -1,4 +1,5 @@
-// niri configs/binds.kdl — Keybindings
+// niri configs/binds.dms.kdl — Full binds for DMS desktop shell
+// Source: include "configs/binds.dms.kdl" in config.kdl
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
@@ -67,9 +68,6 @@ binds {
     // Overview & Window Close
     // =========================================================================
 
-    // Open/close the Overview: a zoomed-out view of workspaces and windows.
-    // You can also move the mouse into the top-left hot corner,
-    // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
@@ -167,6 +165,7 @@ binds {
     // =========================================================================
     // Mouse Wheel — Workspace & Focus
     // =========================================================================
+
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
@@ -196,6 +195,7 @@ binds {
     // =========================================================================
     // Workspace Switching by Number
     // =========================================================================
+
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -218,14 +218,13 @@ binds {
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
-    // Switches focus between the current and the previous workspace.
-    // Mod+Tab { focus-workspace-previous; }
     Alt+X { focus-workspace-previous; }
     Mod+X { focus-workspace-previous; }
 
     // =========================================================================
     // Column / Window Management
     // =========================================================================
+
     // Super+Tab { toggle-overview; }
 
     // The following binds move the focused window in and out of a column.
@@ -302,7 +301,7 @@ binds {
     // Mod+Shift+Space { switch-layout "prev"; }
 
     // =========================================================================
-    // Screenshots
+    // Screenshots & Recording (DMS)
     // =========================================================================
 
     Print { screenshot; }
@@ -310,10 +309,6 @@ binds {
     Alt+Print hotkey-overlay-title="Take a screenshot-window" { screenshot-window; }
 
     Ctrl+Alt+S hotkey-overlay-title="Screenshot + Edit" { spawn-sh "dms screenshot --stdout | swappy -f -"; }
-
-    // =========================================================================
-    // Screen Recording
-    // =========================================================================
 
     // Screen recording (reuse Hyprland script)
     Ctrl+Shift+bracketleft  hotkey-overlay-title="Record fullscreen" { spawn-sh "~/.config/hypr/scripts/screen-record.sh full"; }

@@ -10,10 +10,12 @@ include "configs/input.kdl"
 include "configs/layout.kdl"
 include "configs/windowrules.kdl"
 include "configs/animations.kdl"
-include "configs/binds.kdl"
 include "configs/windowlist.kdl"
+include "configs/cursor.kdl"
 
-include "dms/cursor.kdl"
+// Desktop shell: uncomment ONE of the following binds file:
+include "configs/binds.noctalia.kdl"
+// include "configs/binds.dms.kdl"
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -60,6 +62,10 @@ include "dms/cursor.kdl"
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 
+// Desktop shell: Noctalia
+spawn-at-startup "noctalia"
+// spawn-at-startup "dms run"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -82,3 +88,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
+
+// Noctalia dynamic theme (focus-ring, border, shadow colors from wallpaper)
+include "noctalia.kdl"
