@@ -28,8 +28,13 @@ dofile(base .. "/configs/windowrules.lua")
 -- Choose one: dofile for DMS (default) or Noctalia
 local noctalia_ok, noctalia = pcall(dofile, base .. "/noctalia.lua")
 if noctalia_ok then
-    -- Noctalia is installed: apply dynamic theme, load Noctalia binds
-    noctalia.apply_theme()
+    -- Noctalia is installed: apply dynamic theme via hyprctl eval (avoids hl.config() resetting general.*)
+    local p = noctalia.colors.primary
+    local s = noctalia.colors.surface
+    local e = noctalia.colors.error
+    hl.exec_cmd("hyprctl eval 'hl.config({ general = { col = { active_border = " .. p .. ", inactive_border = " .. s .. " } } })'")
+    hl.exec_cmd("hyprctl eval 'hl.config({ group = { col = { border_active = " .. p .. ", border_inactive = " .. s .. ", border_locked_active = " .. e .. ", border_locked_inactive = " .. s .. " } } })'")
+    hl.exec_cmd("hyprctl eval 'hl.config({ group = { groupbar = { col = { active = " .. p .. ", inactive = " .. s .. ", locked_active = " .. e .. ", locked_inactive = " .. s .. " } } } })'")
     dofile(base .. "/configs/binds.noctalia.lua")
 else
     -- Fallback: DMS binds (DankMaterialShell)
@@ -59,5 +64,26 @@ hl.animation({ leaf = "fadeIn",       enabled = true, speed = 3,   bezier = "def
 hl.animation({ leaf = "fadeOut",      enabled = true, speed = 3,   bezier = "default" })
 hl.animation({ leaf = "border",       enabled = true, speed = 5,   bezier = "myBezier" })
 
--- For Noctalia Color templates
+-- Noctalia Color templates: apply colors via hyprctl eval (not hl.config)
+-- to avoid resetting general.* fields like layout.
+local ok, ncl = pcall(dofile, base .. "/noctalia.lua")
+if ok and ncl and ncl.colors then
+    local c = ncl.colors
+    hl.exec_cmd("hyprctl eval 'hl.config({ general = { col = { active_border = " .. c.primary .. ", inactive_border = " .. c.surface .. " } } })'")
+    hl.exec_cmd("hyprctl eval 'hl.config({ group = { col = { border_active = " .. c.secondary .. ", border_inactive = " .. c.surface .. ", border_locked_active = " .. c.error .. ", border_locked_inactive = " .. c.surface .. " } } })'")
+    hl.exec_cmd("hyprctl eval 'hl.config({ group = { groupbar = { col = { active = " .. c.secondary .. ", inactive = " .. c.surface .. ", locked_active = " .. c.error .. ", locked_inactive = " .. c.surface .. " } } } })'")
+end
+
+-- For Noctalia Color templates (kept for apply.sh compatibility)
 require("noctalia").apply_theme()
+
+-- Restore layout after Noctalia apply_theme() resets general.* on reload.
+-- Read the layout saved by layout-cycle.sh or the last user selection.
+local f = io.open("/tmp/hypr_layout", "r")
+if f then
+    local layout = f:read("*l")
+    f:close()
+    if layout and layout ~= "" and layout ~= "dwindle" then
+        hl.config({ general = { layout = layout } })
+    end
+end

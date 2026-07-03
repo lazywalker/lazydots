@@ -30,6 +30,9 @@ target=$(next_layout "$current")
 # Switch layout
 hyprctl eval "hl.config({ general = { layout = \"${target}\" } })" >/dev/null 2>&1
 
+# Save layout for recovery after Noctalia auto-reload
+echo "$target" > /tmp/hypr_layout
+
 # Scrolling layout: set column width to 40%, left margin 30px
 if [[ "$target" == "scrolling" ]]; then
     hyprctl eval "hl.config({ scrolling = { column_width = 0.4 } })" >/dev/null 2>&1

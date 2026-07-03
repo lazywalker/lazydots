@@ -17,7 +17,7 @@ hl.config({
             inactive_border = "rgba(505050ee)",
         },
 
-        layout = "dwindle",
+        -- layout is set in hyprland.lua (bottom of file) to survive Noctalia auto-reload
     },
 
     dwindle = {
