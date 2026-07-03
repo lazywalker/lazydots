@@ -32,7 +32,7 @@ bindsym $mod+Shift+Tab exec $ncl window-switcher
 bindsym Print       exec $ncl screenshot-region
 bindsym Ctrl+Print  exec $ncl screenshot-fullscreen
 bindsym Alt+Print   exec $ncl screenshot-fullscreen pick
-bindsym Ctrl+Alt+S  exec $ncl screenshot-region
+bindsym Ctrl+Alt+S  exec sh -c 'slurp | grim -g - - | swappy -f -'
 
 # Media & Volume Keys (Noctalia)
 unbindsym --locked XF86AudioRaiseVolume

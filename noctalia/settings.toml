@@ -84,12 +84,12 @@ custom_palette = "purple-star-mc"
 source = "wallpaper"
 
     [theme.templates]
-    builtin_ids = [ "kitty", "hyprland" ]
+    builtin_ids = [ "kitty", "hyprland", "niri" ]
     enable_builtin_templates = true
 
-        [theme.templates.user.sway-borders]
-        input_path = "~/.config/noctalia/templates/sway-borders"
-        output_path = "~/.config/sway/colors.conf"
+        [theme.templates.user.sway-colors]
+        input_path = "~/.config/noctalia/templates/sway-colors"
+        output_path = "~/.config/sway/noctalia"
         post_hook = "swaymsg reload"
 
 [wallpaper]
@@ -99,13 +99,13 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
+    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
+    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
+    path = "/home/mic/Pictures/wallpapers/Abstract - Nature.jpg"
 
 [widget.network]
 show_label = false

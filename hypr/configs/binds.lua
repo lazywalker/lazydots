@@ -259,10 +259,12 @@ hl.bind("CTRL + ALT + bracketright", hl.dsp.exec_cmd(
 -- System & Power
 -- =========================================================================
 
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"),
-    { description = "Exit Hyprland (via uwsm)" })
-hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("uwsm stop"),
-    { description = "Exit Hyprland (Ctrl+Alt+Del)" })
+hl.bind("CTRL + ALT + E", hl.dsp.exec_cmd(
+    [[sh -c 'swaynag -t warning -m "Exit Hyprland?" -B "Yes, exit" "uwsm stop"']]),
+    { description = "Exit Hyprland (Ctrl+Alt+Del, with confirm)" })
+hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd(
+    [[sh -c 'swaynag -t warning -m "Exit Hyprland?" -B "Yes, exit" "uwsm stop"']]),
+    { description = "Exit Hyprland (Ctrl+Alt+Del, with confirm)" })
 
 hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session"),
     { description = "Lock screen (loginctl fallback)" })

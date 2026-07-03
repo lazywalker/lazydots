@@ -1,4 +1,0 @@
-client.focused          {{colors.primary.default.hex}} {{colors.primary.default.hex}} #ffffff {{colors.primary.default.hex}} {{colors.primary.default.hex}}
-client.unfocused        {{colors.surface.default.hex}} {{colors.surface.default.hex}} #888888 {{colors.surface.default.hex}} {{colors.surface.default.hex}}
-client.focused_inactive {{colors.surface.default.hex}} {{colors.surface.default.hex}} #888888 {{colors.surface.default.hex}} {{colors.surface.default.hex}}
-
