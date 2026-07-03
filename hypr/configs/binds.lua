@@ -1,8 +1,16 @@
 -- =========================================================================
 -- binds.lua — Niri binds{} ported to Hyprland 0.55+ Lua
 -- =========================================================================
+--
+-- Desktop shell integration:
+--   binds.dms.lua      — DankMaterialShell (loaded when noctalia.lua not found)
+--   binds.noctalia.lua — Noctalia shell (loaded when noctalia.lua exists)
+--
+-- Common binds below are compositor-level and shell-independent.
 
-local mainMod = "SUPER"
+-- mainMod is local here, but also assigned as global for binds.dms.lua / binds.noctalia.lua
+mainMod = "SUPER"
+local mainMod = mainMod
 
 -- =========================================================================
 -- Application Launchers
@@ -11,8 +19,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"),
     { description = "Open terminal (Kitty)" })
 
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call launcher toggle"),
-    { description = "DMS application launcher" })
+-- $mod+D → see binds.dms.lua (DMS) or binds.noctalia.lua (Noctalia)
 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"),
     { description = "Open file manager (Thunar)" })
@@ -37,8 +44,7 @@ hl.bind(mainMod .. " + ALT + D", hl.dsp.exec_cmd(
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(),
     { description = "Close focused window" })
 
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("dms ipc call overview toggle"),
-    { description = "Toggle DMS overview" })
+-- $mod+O → see binds.dms.lua or binds.noctalia.lua
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
     { description = "Toggle maximized (pseudo-fullscreen)" })
@@ -226,17 +232,8 @@ hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 50, relative 
     { description = "Resize window down (vim)" })
 
 -- =========================================================================
--- Screenshots
+-- Screenshots → see binds.dms.lua or binds.noctalia.lua
 -- =========================================================================
-
-hl.bind("Print", hl.dsp.exec_cmd("dms screenshot"),
-    { description = "Take screenshot (select area)" })
-hl.bind("CTRL + Print", hl.dsp.exec_cmd("dms screenshot --no-file"),
-    { description = "Take screenshot to clipboard" })
-hl.bind("ALT + Print", hl.dsp.exec_cmd("dms screenshot --window"),
-    { description = "Take screenshot of active window" })
-hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("dms screenshot --stdout | swappy -f -"),
-    { description = "Screenshot + open in swappy editor" })
 
 -- =========================================================================
 -- Screen Recording
@@ -267,29 +264,21 @@ hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm stop"),
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("uwsm stop"),
     { description = "Exit Hyprland (Ctrl+Alt+Del)" })
 
-hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd("dms ipc call lock lock"),
-    { description = "Lock screen" })
+hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session"),
+    { description = "Lock screen (loginctl fallback)" })
 
-hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("dms ipc call powermenu toggle"),
-    { description = "Power menu" })
-
-hl.bind(mainMod .. " + ALT + B", hl.dsp.exec_cmd("dms ipc call bar toggleAutoHide index 0"),
-    { description = "Toggle status bar auto-hide" })
+-- $mod+Alt+P / $mod+Alt+B / $mod+Shift+W / Ctrl+Shift+R → see binds.dms.lua or binds.noctalia.lua
 
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("overskride"),
     { description = "Bluetooth settings (Overskride)" })
 
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("dms ipc call wallpaper next"),
-    { description = "Next wallpaper" })
+-- $mod+Shift+W / Ctrl+Shift+R → see binds.dms.lua or binds.noctalia.lua
 
 hl.bind(mainMod .. " + SHIFT + P", function()
     hl.timer(function()
         hl.dispatch(hl.dsp.dpms({ action = "disable" }))
     end, { timeout = 500, type = "oneshot" })
 end, { description = "Power off monitors (DPMS)" })
-
-hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd("dms ipc call workspace-rename open"),
-    { description = "Rename workspace" })
 
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("pkill orca || exec orca"),
     { description = "Toggle screen reader (Orca)" })

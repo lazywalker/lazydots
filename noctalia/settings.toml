@@ -4,6 +4,7 @@ capsule = true
 center = [ "active_window" ]
 end = [
     "group:g1",
+    "weather",
     "tray",
     "notifications",
     "clipboard",
@@ -83,7 +84,7 @@ custom_palette = "purple-star-mc"
 source = "wallpaper"
 
     [theme.templates]
-    builtin_ids = [ "kitty" ]
+    builtin_ids = [ "kitty", "hyprland" ]
     enable_builtin_templates = true
 
         [theme.templates.user.sway-borders]
@@ -98,16 +99,19 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Lofi - Anime Girl2.png"
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Lofi - Anime Girl2.png"
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Lofi - Anime Girl2.png"
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Riverside-Dark.png"
 
 [widget.network]
 show_label = false
+
+[widget.weather]
+show_condition = false
 
 [widget.workspaces]
 display = "none"

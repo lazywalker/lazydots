@@ -24,6 +24,18 @@ dofile(base .. "/configs/exec.lua")
 dofile(base .. "/configs/binds.lua")
 dofile(base .. "/configs/windowrules.lua")
 
+-- === Desktop shell integration ===
+-- Choose one: dofile for DMS (default) or Noctalia
+local noctalia_ok, noctalia = pcall(dofile, base .. "/noctalia.lua")
+if noctalia_ok then
+    -- Noctalia is installed: apply dynamic theme, load Noctalia binds
+    noctalia.apply_theme()
+    dofile(base .. "/configs/binds.noctalia.lua")
+else
+    -- Fallback: DMS binds (DankMaterialShell)
+    dofile(base .. "/configs/binds.dms.lua")
+end
+
 -- === User overrides (loaded last) ===
 dofile(base .. "/UserConfigs/binds.lua")
 
@@ -46,3 +58,6 @@ hl.animation({ leaf = "fade",         enabled = true, speed = 3,   bezier = "def
 hl.animation({ leaf = "fadeIn",       enabled = true, speed = 3,   bezier = "default" })
 hl.animation({ leaf = "fadeOut",      enabled = true, speed = 3,   bezier = "default" })
 hl.animation({ leaf = "border",       enabled = true, speed = 5,   bezier = "myBezier" })
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

@@ -6,7 +6,7 @@ hl.config({
     general = {
         -- Niri: gaps 12 → Hyprland (CSS order: top, right, bottom, left)
         gaps_in  = 4,
-        gaps_out = { top = 14, right = 6, bottom = 6, left = 6 },
+        gaps_out = { top = 6, right = 6, bottom = 6, left = 6 },
 
         -- Niri: focus-ring { width 4 }
         border_size = 4,
