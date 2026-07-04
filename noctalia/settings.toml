@@ -185,7 +185,8 @@ source = "wallpaper"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "kitty", "hyprland", "niri" ]
+    builtin_ids = [ "btop", "gtk4", "hyprland", "kitty", "niri", "qt", "starship" ]
+    community_ids = [ "neovim", "fuzzel", "telegram" ]
     enable_builtin_templates = true
 
         [theme.templates.user.sway-colors]
@@ -201,13 +202,13 @@ directory = "/home/mic/Pictures/wallpapers"
     interval_seconds = 300
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Mountain_dark.png"
+    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Mountain_dark.png"
+    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Mountain_dark.png"
+    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
 
 [widget.active_window]
 min_length = 132

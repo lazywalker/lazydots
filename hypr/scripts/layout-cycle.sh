@@ -37,6 +37,10 @@ echo "$target" > /tmp/hypr_layout
 if [[ "$target" == "scrolling" ]]; then
     hyprctl eval "hl.config({ scrolling = { column_width = 0.4 } })" >/dev/null 2>&1
     hyprctl eval "hl.config({ general = { gaps_out = { top = 6, right = 6, bottom = 6, left = 30 } } })" >/dev/null 2>&1
+    # Resize all existing windows to scrolling default width
+    hyprctl clients -j 2>/dev/null | jq -r '.[] | .address' | while read -r addr; do
+        hyprctl dispatch setprop "address:$addr" 0 0 "40%" 2>/dev/null || true
+    done
 else
     # Restore normal gaps for non-scrolling layouts
     hyprctl eval "hl.config({ general = { gaps_out = { top = 6, right = 6, bottom = 6, left = 6 } } })" >/dev/null 2>&1
