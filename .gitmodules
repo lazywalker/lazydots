@@ -1,3 +1,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/lazywalker/minivim.git
+[submodule "fvwm"]
+	path = fvwm
+	url = https://github.com/lazywalker/fvwm

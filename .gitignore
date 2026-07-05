@@ -4,10 +4,12 @@
 # Whitelist tracked directories
 !/.gitignore
 !/.gitattributes
+!/README.md
 !/ashell/
 !/DankMaterialShell/
 !/environment.d/
 !/fcitx5/
+!/fvwm/
 !/hypr/
 !/kitty/
 !/niri/
