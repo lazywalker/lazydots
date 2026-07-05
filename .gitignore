@@ -28,3 +28,6 @@
 /niri/noctalia.kdl
 /sway/noctalia
 /fuzzel/themes/noctalia
+
+# Runtime state (written by scripts at runtime)
+/hypr/.layout
