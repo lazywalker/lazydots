@@ -1,0 +1,9 @@
+# Git attributes for the dotfiles repo.
+#
+# starship.toml mixes hand-written prompt styles with a Noctalia-generated
+# palette block. Starship has no native `include`, so Noctalia injects the
+# palette in-file between `>>> NOCTALIA STARSHIP PALETTE >>>` markers. The
+# noctalia-starship clean filter strips that block (plus the leading
+# `palette = "noctalia"` line) on commit, so wallpaper refreshes don't
+# produce noise diffs. Smudge is a no-op: the working copy stays whole.
+/starship.toml filter=noctalia-starship

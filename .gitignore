@@ -3,6 +3,7 @@
 
 # Whitelist tracked directories
 !/.gitignore
+!/.gitattributes
 !/ashell/
 !/DankMaterialShell/
 !/environment.d/
@@ -11,6 +12,7 @@
 !/kitty/
 !/niri/
 !/noctalia/
+!/starship.toml
 !/sway/
 !/waybar/
 
