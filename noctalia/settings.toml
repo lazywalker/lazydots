@@ -202,13 +202,13 @@ directory = "/home/mic/Pictures/wallpapers"
     interval_seconds = 300
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Street-2.png"
+    path = "/home/mic/Pictures/wallpapers/Balcony-ja.png"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Street-2.png"
+    path = "/home/mic/Pictures/wallpapers/Balcony-ja.png"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Street-2.png"
+    path = "/home/mic/Pictures/wallpapers/Balcony-ja.png"
 
 [widget.active_window]
 min_length = 132

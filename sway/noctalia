@@ -1,6 +1,6 @@
-client.focused          #f1bd86 #17130f #eae1da #f1bd86 #f1bd86
-client.focused_inactive #9c8e82 #17130f #d4c4b6 #9c8e82 #9c8e82
-client.unfocused        #9c8e82 #17130f #d4c4b6 #9c8e82 #9c8e82
-client.urgent           #ffb4ab #17130f #eae1da #ffb4ab #ffb4ab
-client.placeholder      #17130f #17130f #d4c4b6 #17130f #17130f
-client.background       #17130f
+client.focused          #d6baff #151218 #e7e0e9 #d6baff #d6baff
+client.focused_inactive #958e9c #151218 #ccc3d3 #958e9c #958e9c
+client.unfocused        #958e9c #151218 #ccc3d3 #958e9c #958e9c
+client.urgent           #ffb4ab #151218 #e7e0e9 #ffb4ab #ffb4ab
+client.placeholder      #151218 #151218 #ccc3d3 #151218 #151218
+client.background       #151218

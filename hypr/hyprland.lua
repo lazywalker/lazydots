@@ -79,11 +79,16 @@ require("noctalia").apply_theme()
 
 -- Restore layout after Noctalia apply_theme() resets general.* on reload.
 -- Read the layout saved by layout-cycle.sh or the last user selection.
-local f = io.open("/tmp/hypr_layout", "r")
+local f = io.open(base .. "/.layout", "r")
 if f then
     local layout = f:read("*l")
     f:close()
     if layout and layout ~= "" and layout ~= "dwindle" then
         hl.config({ general = { layout = layout } })
+        -- Scrolling layout needs extra settings
+        if layout == "scrolling" then
+            hl.config({ scrolling = { column_width = 0.4 } })
+            hl.config({ general = { gaps_out = { top = 6, right = 6, bottom = 6, left = 30 } } })
+        end
     end
 end
