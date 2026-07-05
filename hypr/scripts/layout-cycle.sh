@@ -31,7 +31,7 @@ target=$(next_layout "$current")
 hyprctl eval "hl.config({ general = { layout = \"${target}\" } })" >/dev/null 2>&1
 
 # Save layout for recovery after Noctalia auto-reload
-echo "$target" > /tmp/hypr_layout
+echo "$target" > ~/.config/hypr/.layout
 
 # Scrolling layout: set column width to 40%, left margin 30px
 if [[ "$target" == "scrolling" ]]; then
@@ -39,7 +39,7 @@ if [[ "$target" == "scrolling" ]]; then
     hyprctl eval "hl.config({ general = { gaps_out = { top = 6, right = 6, bottom = 6, left = 30 } } })" >/dev/null 2>&1
     # Resize all existing windows to scrolling default width
     hyprctl clients -j 2>/dev/null | jq -r '.[] | .address' | while read -r addr; do
-        hyprctl dispatch setprop "address:$addr" 0 0 "40%" 2>/dev/null || true
+        hyprctl eval "hl.exec_cmd(\"hyprctl setprop $addr 0 0 40%\")" 2>/dev/null || true
     done
 else
     # Restore normal gaps for non-scrolling layouts

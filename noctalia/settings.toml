@@ -36,7 +36,7 @@ radius = 0
 radius_top_left = 10
 radius_top_right = 10
 shadow = false
-start = [ "launcher", "wallpaper", "workspaces", "spacer_2", "taskbar" ]
+start = [ "launcher", "wallpaper", "workspaces", "spacer_2", "taskbar", "audio_visualizer" ]
 thickness = 24
 widget_spacing = 8
 
@@ -202,13 +202,13 @@ directory = "/home/mic/Pictures/wallpapers"
     interval_seconds = 300
 
     [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
+    path = "/home/mic/Pictures/wallpapers/Street-2.png"
 
     [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
+    path = "/home/mic/Pictures/wallpapers/Street-2.png"
 
     [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Purple-Nightmare.jpg"
+    path = "/home/mic/Pictures/wallpapers/Street-2.png"
 
 [widget.active_window]
 min_length = 132
