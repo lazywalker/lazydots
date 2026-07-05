@@ -217,14 +217,8 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
     interval_seconds = 300
 
-    [wallpaper.default]
-    path = "/home/mic/Pictures/wallpapers/Anime-Girl2.png"
-
-    [wallpaper.last]
-    path = "/home/mic/Pictures/wallpapers/Anime-Girl2.png"
-
-    [wallpaper.monitors.HDMI-A-2]
-    path = "/home/mic/Pictures/wallpapers/Anime-Girl2.png"
+# wallpaper.default / wallpaper.last / wallpaper.monitors.* are managed by
+# Noctalia at runtime (written to the state-dir settings.toml override layer).
 
 [widget.active_window]
 min_length = 132
