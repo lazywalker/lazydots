@@ -329,8 +329,8 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P hotkey-overlay-title="Power off monitors" { power-off-monitors; }
 
-    // Power menu via fuzzel + Noctalia session actions
-    Mod+Alt+P hotkey-overlay-title="Power Menu" { spawn-sh "printf 'Lock\nLogout\nSuspend\nReboot\nShutdown' | fuzzel --dmenu --prompt='Power: ' | xargs -r -I{} sh -c 'case \"{}\" in Lock) noctalia msg session lock;; Logout) noctalia msg session logout;; Suspend) noctalia msg session suspend;; Reboot) noctalia msg session reboot;; Shutdown) noctalia msg session shutdown;; esac'"; }
+    // Power menu (Noctalia native session panel)
+    Mod+Alt+P hotkey-overlay-title="Power Menu" { spawn-sh "noctalia msg panel-toggle session"; }
 
     Mod+Alt+D hotkey-overlay-title="Run Command" { spawn-sh "compgen -c | fuzzel --dmenu --prompt='Run command: ' | xargs -r -I{} sh -c 'exec {}'"; }
 

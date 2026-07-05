@@ -53,7 +53,7 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen
     { description = "Toggle fullscreen" })
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
-    { description = "Cycle active window width (30% → 40% → 50% → 60%)" })
+    { description = "Cycle active window width (40% → 50% → 60%)" })
 
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle maximize to edges" })

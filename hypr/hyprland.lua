@@ -87,7 +87,7 @@ if f then
         hl.config({ general = { layout = layout } })
         -- Scrolling layout needs extra settings
         if layout == "scrolling" then
-            hl.config({ scrolling = { column_width = 0.4 } })
+            hl.config({ scrolling = { column_width = 0.45 } })
             hl.config({ general = { gaps_out = { top = 6, right = 6, bottom = 6, left = 30 } } })
         end
     end

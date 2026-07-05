@@ -10,8 +10,8 @@ bindsym $mod+d exec $ncl panel-toggle launcher
 # Lock screen (Noctalia)
 bindsym $mod+Ctrl+Alt+l exec $ncl session lock
 
-# Power menu (Noctalia — session actions via fuzzel)
-bindsym $mod+Alt+p exec fuzzel --dmenu --prompt="Power: " <<< $'Lock\nLogout\nSuspend\nReboot\nShutdown' | xargs -r -I{} sh -c 'case "{}" in Lock) noctalia msg session lock;; Logout) noctalia msg session logout;; Suspend) noctalia msg session suspend;; Reboot) noctalia msg session reboot;; Shutdown) noctalia msg session shutdown;; esac'
+# Power menu (Noctalia native session panel)
+bindsym $mod+Alt+p exec $ncl panel-toggle session
 
 # Toggle status bar (Noctalia — not directly available, placeholder)
 # bindsym $mod+Alt+b exec ...
