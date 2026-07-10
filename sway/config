@@ -37,16 +37,13 @@ exec_always /home/mic/.config/sway/scripts/dwindle-auto.sh
 
 ### Idle configuration
 #
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# Noctalia's [idle] config relies on ext-idle-notify-v1, which sway 1.12 does
+# not implement ("idle notify protocol unavailable; idle behaviors not
+# registered"). So under sway we fall back to swayidle via a wrapper script,
+# with timeouts matching noctalia/config.toml (lock 300s, screen-off 600s).
+# The script is used instead of inline commands because sway's exec mangles
+# the quotes around multi-word timeout commands.
+exec ~/.config/sway/scripts/idle.sh
 
 ### Input configuration
 #
