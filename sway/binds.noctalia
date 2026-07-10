@@ -7,6 +7,9 @@ set $ncl noctalia msg
 # App launcher (Noctalia)
 bindsym $mod+d exec $ncl panel-toggle launcher
 
+# Control center (Noctalia)
+bindsym $mod+s exec $ncl panel-toggle control-center
+
 # Lock screen (Noctalia)
 bindsym $mod+Ctrl+Alt+l exec $ncl session lock
 
