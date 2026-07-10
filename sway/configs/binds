@@ -261,7 +261,7 @@ bindsym Ctrl+Alt+Delete exec swaynag -t warning -m 'Exit sway? This will end you
 bindsym $mod+Shift+p exec ~/.config/sway/scripts/screen-off.sh
 
 # Reload sway config
-bindsym $mod+Shift+r reload
+bindsym $mod+Shift+r exec swaymsg reload && notify-send -e -u low -i preferences-system 'Sway' 'Config reloaded'
 
 # run command
 bindsym $mod+Alt+d exec fuzzel --dmenu --prompt="Run command: " < <(compgen -c) | xargs -r swaymsg exec --
