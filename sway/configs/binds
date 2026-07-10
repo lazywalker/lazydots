@@ -57,7 +57,7 @@ bindsym $mod+Shift+t exec kitty --title kitty-theme-picker kitten themes
 # Rename workspace → see binds.dms
 
 # Hotkey overlay
-bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
+bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/configs/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
 
 # ============================================================================
 # Navigation — Focus direction

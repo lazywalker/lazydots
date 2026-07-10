@@ -69,12 +69,12 @@ input "76:617:mic's_Magic_Mouse2" {
 }
 
 ### Key bindings
-# All keybinds are defined in binds.conf (ported from niri/config.kdl)
-include binds
+# All keybinds are defined in configs/binds (ported from niri/config.kdl)
+include configs/binds
 
 ### Window styles
 # All window styling is defined in styles (ported from niri/config.kdl)
-include styles
+include configs/styles
 
 #
 # Status Bar:
