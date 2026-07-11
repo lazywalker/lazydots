@@ -34,7 +34,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+e exec thunar
 bindsym $mod+b exec firefox
 # $mod+d → see binds.dms (DMS launcher)
-bindsym $mod+O exec qs -c overview
+# $mod+O: overview removed (quickshell overview is Hyprland-only)
 
 # Close/kill window
 bindsym $mod+Q kill
