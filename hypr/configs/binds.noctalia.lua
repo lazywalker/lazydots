@@ -14,7 +14,7 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ncl .. " panel-toggle control-center"
     { description = "Noctalia control center" })
 
 -- Overview
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs -c overview"),
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs -c overview ipc call overview toggle"),
     { description = "Toggle overview (Quickshell)" })
 
 -- Lock screen
