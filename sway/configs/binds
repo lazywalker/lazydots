@@ -270,7 +270,7 @@ bindsym $mod+Alt+d exec fuzzel --dmenu --prompt="Run command: " < <(compgen -c) 
 # Miscellaneous
 # ============================================================================
 # 68-key keyboard: Shift+Escape to type tilde
-bindsym Shift+Escape exec wtype "~"
+# bindsym Shift+Escape exec wtype "~"
 
 # Floating modifier (drag with mouse + $mod)
 floating_modifier $mod normal

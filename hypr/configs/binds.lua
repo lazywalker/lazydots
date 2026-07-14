@@ -347,8 +347,8 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(),
 -- Miscellaneous
 -- =========================================================================
 
-hl.bind("SHIFT + Escape", hl.dsp.exec_cmd("wtype '~'"),
-    { description = "Type tilde (68-key keyboard)" })
+-- hl.bind("SHIFT + Escape", hl.dsp.exec_cmd("wtype '~'"),
+--     { description = "Type tilde (68-key keyboard)" })
 
 hl.bind(mainMod .. " + SHIFT + slash", hl.dsp.exec_cmd(
     [[sh -c 'hyprctl binds -j | jq -r ".[] | (if .modmask == 0 then \"\" elif .modmask == 64 then \"SUPER\" elif .modmask == 65 then \"SUPER+SHIFT\" elif .modmask == 8 then \"ALT\" elif .modmask == 72 then \"SUPER+ALT\" else \"MOD(\(.modmask))\" end) as \$mod | \"\(\$mod) + \(.key)\t ➔ \t \(.description // .arg)\"" | fuzzel --dmenu --width=90 --prompt="🔍 Search Keybinds: "']]),
