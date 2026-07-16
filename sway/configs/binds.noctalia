@@ -58,10 +58,24 @@ bindsym --locked XF86AudioStop  exec $ncl media stop
 bindsym --locked XF86AudioPrev  exec $ncl media previous
 bindsym --locked XF86AudioNext  exec $ncl media next
 
+# Alt volume keys: Alt+, / Alt+.
+bindsym --locked Mod1+comma  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
+bindsym --locked Mod1+period exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
+bindsym --locked Mod1+m      exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Alt media keys: Alt+[ / Alt+] / Alt+p
+bindsym --locked Mod1+bracketleft  exec playerctl previous
+bindsym --locked Mod1+bracketright exec playerctl next
+bindsym --locked Mod1+p            exec playerctl play-pause
+
 unbindsym --locked XF86MonBrightnessUp
 unbindsym --locked XF86MonBrightnessDown
-bindsym --locked XF86MonBrightnessUp   exec $ncl brightness-up
-bindsym --locked XF86MonBrightnessDown exec $ncl brightness-down
+bindsym --locked XF86MonBrightnessUp   exec ddcutil setvcp 10 + 10
+bindsym --locked XF86MonBrightnessDown exec ddcutil setvcp 10 - 10
+
+# Alt brightness keys: Alt+; / Alt+'
+bindsym --locked Mod1+semicolon  exec ddcutil setvcp 10 - 10
+bindsym --locked Mod1+apostrophe exec ddcutil setvcp 10 + 10
 
 # Monitor power (Noctalia)
 #unbindsym $mod+Shift+p
