@@ -50,5 +50,5 @@ hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd(
     { description = "Screenshot region + edit in swappy" })
 
 -- Window switcher (Noctalia)
-hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(ncl .. " window-switcher"),
-    { description = "Window switcher" })
+-- hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd(ncl .. " window-switcher"),
+--     { description = "Window switcher" })
