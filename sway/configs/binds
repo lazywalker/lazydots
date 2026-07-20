@@ -251,12 +251,12 @@ bindsym --locked XF86AudioNext  exec playerctl next
 # Alt volume keys: Alt+, / Alt+.
 bindsym --locked Mod1+comma  exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-
 bindsym --locked Mod1+period exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0
-bindsym --locked Mod1+m      exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked Mod1+slash     exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 # Alt media keys: Alt+[ / Alt+] / Alt+p
 bindsym --locked Mod1+bracketleft  exec playerctl previous
 bindsym --locked Mod1+bracketright exec playerctl next
-bindsym --locked Mod1+p            exec playerctl play-pause
+bindsym --locked Mod1+backslash    exec playerctl play-pause
 
 # ============================================================================
 # Brightness

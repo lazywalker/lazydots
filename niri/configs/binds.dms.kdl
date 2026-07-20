@@ -61,12 +61,12 @@ binds {
     // Alt volume keys: Alt+, / Alt+.
     Alt+Comma  allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
     Alt+Period allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+ -l 1.0"; }
-    Alt+M      allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    Alt+Slash     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
 
     // Alt media keys: Alt+[ / Alt+] / Alt+p
     Alt+BracketLeft  allow-when-locked=true { spawn-sh "playerctl previous"; }
     Alt+BracketRight allow-when-locked=true { spawn-sh "playerctl next"; }
-    Alt+P            allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    Alt+Backslash   allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 
     // Example brightness key mappings for ddcutil (monitor DDC/CI).
     // Using spawn-sh to pass the arguments together.

@@ -27,8 +27,8 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"),
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"),
     { description = "Open web browser (Firefox)" })
 
-hl.bind("F2", hl.dsp.exec_cmd("fuzzel"),
-    { description = "Fuzzel app launcher (fallback)" })
+-- hl.bind("F2", hl.dsp.exec_cmd("fuzzel"),
+--     { description = "Fuzzel app launcher (fallback)" })
 
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty --title kitty-theme-picker kitten themes"),
     { description = "Kitty theme picker" })
@@ -313,14 +313,14 @@ hl.bind("ALT + comma", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.
     { description = "Lower volume (alt)", locked = true, repeating = true })
 hl.bind("ALT + period", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.05+"),
     { description = "Raise volume (alt)", locked = true, repeating = true })
-hl.bind("ALT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+hl.bind("ALT + slash", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
     { description = "Mute/unmute audio (alt)", locked = true })
 
 hl.bind("ALT + bracketleft", hl.dsp.exec_cmd("playerctl previous"),
     { description = "Previous track (alt)", locked = true })
 hl.bind("ALT + bracketright", hl.dsp.exec_cmd("playerctl next"),
     { description = "Next track (alt)", locked = true })
-hl.bind("ALT + P", hl.dsp.exec_cmd("playerctl play-pause"),
+hl.bind("ALT + backslash", hl.dsp.exec_cmd("playerctl play-pause"),
     { description = "Play/pause (alt)", locked = true })
 
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("ddcutil setvcp 10 + 10"),
