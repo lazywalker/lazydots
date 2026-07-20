@@ -39,6 +39,9 @@ bindsym $mod+b exec firefox
 # Close/kill window
 bindsym $mod+Q kill
 
+# Mod+W sends Ctrl+W to focused window (close tab in apps)
+bindsym $mod+W exec wtype -M ctrl -k w -m ctrl
+
 # Lock screen → see binds.dms
 
 # Screen reader toggle (orca)

@@ -44,6 +44,10 @@ hl.bind(mainMod .. " + ALT + D", hl.dsp.exec_cmd(
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(),
     { description = "Close focused window" })
 
+-- Mod+W sends Ctrl+W to the focused window (close tab in apps)
+hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
+    { description = "Send Ctrl+W (close tab in app)" })
+
 -- $mod+O → see binds.dms.lua or binds.noctalia.lua
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
@@ -64,7 +68,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }),
 hl.bind(mainMod .. " + C", hl.dsp.window.center(),
     { description = "Center floating window" })
 
-hl.bind(mainMod .. " + W", hl.dsp.group.toggle(),
+hl.bind(mainMod .. " + T", hl.dsp.group.toggle(),
     { description = "Toggle group (tabbed column)" })
 
 hl.bind("CTRL + Tab", hl.dsp.group.next(),

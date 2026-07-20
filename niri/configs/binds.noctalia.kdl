@@ -86,6 +86,9 @@ binds {
 
     Mod+Q repeat=false { close-window; }
 
+    // Mod+W sends Ctrl+W to focused window (close tab in apps)
+    Mod+W { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
+
     // =========================================================================
     // Focus Navigation
     // =========================================================================
@@ -300,7 +303,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+W { toggle-column-tabbed-display; }
+    Mod+T { toggle-column-tabbed-display; }
 
     // Tab switching in tabbed columns: Ctrl+Tab / Ctrl+Shift+Tab
     Ctrl+Tab       { focus-window-down; }
