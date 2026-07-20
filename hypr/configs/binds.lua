@@ -71,11 +71,10 @@ hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(
     "hyprctl reload && notify-send -e -u low -i preferences-system 'Hyprland' 'Config reloaded'"),
     { description = "Reload Hyprland config" })
 
-hl.bind(mainMod .. " + bracketleft", hl.dsp.window.move({ into_or_create_group = "l" }),
-    { description = "Move window into/out of group left" })
-
-hl.bind(mainMod .. " + bracketright", hl.dsp.window.move({ into_or_create_group = "r" }),
-    { description = "Move window into/out of group right" })
+hl.bind(mainMod .. " + bracketleft", hl.dsp.exec_cmd("~/.config/hypr/scripts/consume-or-expel.sh left"),
+    { description = "Consume/expel window left (scrolling) or into/out of group left" })
+hl.bind(mainMod .. " + bracketright", hl.dsp.exec_cmd("~/.config/hypr/scripts/consume-or-expel.sh right"),
+    { description = "Consume/expel window right (scrolling) or into/out of group right" })
 
 -- =========================================================================
 -- Focus Navigation
