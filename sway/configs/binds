@@ -185,6 +185,10 @@ bindsym $mod+Alt+v splitv
 # Focus parent container
 bindsym $mod+a focus parent
 
+# Tab switching in tabbed containers: Ctrl+Tab / Ctrl+Shift+Tab
+bindsym Ctrl+Tab       focus right
+bindsym Ctrl+Shift+Tab focus left
+
 # ============================================================================
 # Window switching — ported from niri (Mod+Tab / Mod+Escape)
 # ============================================================================

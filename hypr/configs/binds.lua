@@ -67,6 +67,11 @@ hl.bind(mainMod .. " + C", hl.dsp.window.center(),
 hl.bind(mainMod .. " + W", hl.dsp.group.toggle(),
     { description = "Toggle group (tabbed column)" })
 
+hl.bind("CTRL + Tab", hl.dsp.group.next(),
+    { description = "Next tab in group" })
+hl.bind("CTRL + SHIFT + Tab", hl.dsp.group.prev(),
+    { description = "Previous tab in group" })
+
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(
     "hyprctl reload && notify-send -e -u low -i preferences-system 'Hyprland' 'Config reloaded'"),
     { description = "Reload Hyprland config" })

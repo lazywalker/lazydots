@@ -301,6 +301,10 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
+    // Tab switching in tabbed columns: Ctrl+Tab / Ctrl+Shift+Tab
+    Ctrl+Tab       { focus-window-down; }
+    Ctrl+Shift+Tab { focus-window-up; }
+
     // =========================================================================
     // Layout Switching
     // =========================================================================
