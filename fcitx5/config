@@ -12,7 +12,7 @@ ModifierOnlyKeyTimeout=250
 
 [Hotkey/TriggerKeys]
 0=Super+space
-1=Zenkaku_Hankaku
+1=Control+space
 2=Hangul
 
 [Hotkey/ActivateKeys]
@@ -23,6 +23,7 @@ ModifierOnlyKeyTimeout=250
 
 [Hotkey/AltTriggerKeys]
 0=Shift_L
+1=Control+Control_L
 
 [Hotkey/EnumerateGroupForwardKeys]
 0=Super+space
