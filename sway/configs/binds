@@ -170,9 +170,8 @@ bindsym $mod+m       fullscreen toggle
 # ============================================================================
 # Layout — Floating
 # ============================================================================
-bindsym $mod+v       floating toggle
-bindsym $mod+Shift+v focus mode_toggle
-bindsym $mod+space   focus mode_toggle
+bindsym $mod+Shift+v floating toggle
+bindsym Alt+space   focus mode_toggle
 
 # ============================================================================
 # Layout — Tiling modes

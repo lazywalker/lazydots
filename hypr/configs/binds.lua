@@ -62,10 +62,10 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle maximize to edges" })
 
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }),
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }),
     { description = "Toggle floating" })
 
-hl.bind(mainMod .. " + C", hl.dsp.window.center(),
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.center(),
     { description = "Center floating window" })
 
 hl.bind(mainMod .. " + T", hl.dsp.group.toggle(),
