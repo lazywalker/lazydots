@@ -48,6 +48,21 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close(),
 hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
     { description = "Send Ctrl+W (close tab in app)" })
 
+-- Mod+C / Mod+V → send Ctrl+Insert / Ctrl+V (universal copy/paste).
+-- Copy uses Ctrl+Insert (Ctrl+C would SIGINT terminals); paste uses Ctrl+V
+-- because Firefox-Wayland ignores Shift+Insert. kitty.conf maps both to its own actions.
+hl.bind(mainMod .. " + C", hl.dsp.send_shortcut({ mods = "CTRL", key = "INSERT" }),
+    { description = "Copy (send Ctrl+Insert)" })
+hl.bind(mainMod .. " + V", hl.dsp.send_shortcut({ mods = "CTRL", key = "V" }),
+    { description = "Paste (send Ctrl+V)" })
+
+-- Mod+A → send Ctrl+A (select all). Intentionally NOT remapped in kitty:
+-- Ctrl+A is readline "line home" in the shell, and kitty's select_all selects the
+-- entire scrollback (different semantics from GUI "select all"). So in kitty, Mod+A
+-- just moves the cursor to the line start (kept as the readline default).
+hl.bind(mainMod .. " + A", hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }),
+    { description = "Select all (send Ctrl+A)" })
+
 -- $mod+O → see binds.dms.lua or binds.noctalia.lua
 
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
