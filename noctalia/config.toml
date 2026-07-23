@@ -4,7 +4,6 @@ enabled = false
 [bar.default]
 auto_hide = false
 background_opacity = 0.5599999874830246
-capsule = false
 capsule_padding = 8.0
 capsule_radius = "auto"
 center = [ "active_window" ]
@@ -24,20 +23,18 @@ end = [
     "clock"
 ]
 font_family = "FantasqueSansM Nerd Font"
-font_weight = 700
 layer = "top"
 margin_edge = 0
 margin_ends = 0
 margin_opposite_edge = 0
 padding = 10
 panel_overlap = 0
-position = "top"
 radius = 0
-radius_top_left = 10
-radius_top_right = 10
+radius_top_left = 0
+radius_top_right = 0
 shadow = false
-start = [ "launcher", "wallpaper", "workspaces", "spacer_2", "taskbar", "audio_visualizer" ]
-thickness = 24
+start = [ "launcher", "wallpaper", "workspaces", "spacer_2", "taskbar" ]
+thickness = 20
 widget_spacing = 8
 
 [desktop_widgets]
@@ -73,10 +70,18 @@ pre_action_fade_seconds = 3
 [location]
 auto_locate = true
 
+[lockscreen]
+allow_empty_password = true
+
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@HDMI-A-2", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
+widget_order = [
+    "lockscreen-login-box@winit",
+    "lockscreen-login-box@HDMI-A-2",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -96,6 +101,7 @@ widget_order = [ "lockscreen-login-box@HDMI-A-2", "lockscreen-widget-00000000000
         background_color = "on_primary"
         background_opacity = 0.48999999999999999
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
         show_caps_lock = true
@@ -103,11 +109,32 @@ widget_order = [ "lockscreen-login-box@HDMI-A-2", "lockscreen-widget-00000000000
         show_login_button = true
         show_password_hint = false
 
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 418.0
+    cy = 933.0
+    output = "winit"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 224.0
-    box_width = 304.0
+    box_height = 304.0
+    box_width = 400.0
     cx = 960.0
-    cy = 536.0
+    cy = 468.0
     output = "HDMI-A-2"
     rotation = 0.0
     type = "clock"
@@ -129,8 +156,8 @@ widget_order = [ "lockscreen-login-box@HDMI-A-2", "lockscreen-widget-00000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 112.0
     box_width = 224.0
-    cx = 1792.0
-    cy = 1096.0
+    cx = 1728.0
+    cy = 980.0
     output = "HDMI-A-2"
     rotation = -0.0
     type = "weather"
@@ -194,7 +221,7 @@ ui_scale = 1.1000000089406967
 
 [theme]
 builtin = "Noctalia"
-community_palette = "Oxocarbon"
+community_palette = "One"
 custom_palette = "purple-star-mc"
 mode = "dark"
 source = "wallpaper"
@@ -202,7 +229,7 @@ wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk4", "hyprland", "kitty", "niri", "qt", "starship" ]
-    community_ids = [ "neovim", "fuzzel", "telegram" ]
+    community_ids = [ "neovim", "fuzzel", "zathura" ]
     enable_builtin_templates = true
 
         [theme.templates.user.sway-colors]
@@ -217,8 +244,17 @@ directory = "/home/mic/Pictures/wallpapers"
     enabled = true
     interval_seconds = 300
 
-# wallpaper.default / wallpaper.last / wallpaper.monitors.* are managed by
-# Noctalia at runtime (written to the state-dir settings.toml override layer).
+    [wallpaper.default]
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Forest-Dark.png"
+
+    [wallpaper.last]
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Forest-Dark.png"
+
+    [wallpaper.monitors.HDMI-A-2]
+    path = "/home/mic/Pictures/wallpapers/Courtside-Sunset.png"
+
+    [wallpaper.monitors.winit]
+    path = "/home/mic/Pictures/wallpapers/Dynamic-Wallpapers/Dark/Forest-Dark.png"
 
 [widget.active_window]
 min_length = 132

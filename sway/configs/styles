@@ -17,13 +17,13 @@ gaps inner 8
 gaps outer 0
 # niri struts act as side-specific outer gaps; sway only supports uniform outer
 # Use smart_gaps to hide gaps when only one window on workspace (niri column behavior)
-smart_gaps off
+smart_gaps on
 
 # ============================================================================
 # Window borders — from niri layout { focus-ring { width 4; active-color "#7fc8ff"; inactive-color "#505050"; } }
 # ============================================================================
 # Thin pixel border (no title bars, matches niri's prefer-no-csd behavior)
-default_border pixel 3
+default_border pixel 4
 default_floating_border pixel 4
 default_orientation vertical
 
