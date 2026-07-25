@@ -34,12 +34,6 @@ hl.config({
         -- rounding = 20,
         -- rounding_power = 2,
 
-        blur = {
-            enabled = true,
-            size   = 3,
-            passes = 1,
-        },
-
         -- Niri shadow (disabled for Mac mini 2014 performance)
         shadow = {
             enabled      = true,

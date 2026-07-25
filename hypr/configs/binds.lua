@@ -65,8 +65,8 @@ hl.bind(mainMod .. " + A", hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }),
 
 -- $mod+O → see binds.dms.lua or binds.noctalia.lua
 
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
-    { description = "Toggle maximized (pseudo-fullscreen)" })
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("~/.config/hypr/scripts/fit-or-maximize.sh"),
+    { description = "Fit into view (scrolling) / toggle maximized (pseudo-fullscreen)" })
 
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle fullscreen" })
