@@ -33,3 +33,18 @@
 
 # Runtime state (written by scripts at runtime)
 /hypr/.layout
+
+# Explicitly never track secrets / caches (defense-in-depth against
+# `git add -A` or future whitelist edits; rustdesk/gh already un-whitelisted)
+/rustdesk/
+/gh/
+/mozilla/
+/google-chrome/
+/chromium/
+/telegram-desktop/
+/Thunar/
+/via-nativia/
+/sublime-text/
+/mpv/
+/qalculate/
+/dconf/
