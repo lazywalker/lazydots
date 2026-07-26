@@ -89,11 +89,13 @@ binds {
     // Mod+W sends Ctrl+W to focused window (close tab in apps)
     Mod+W { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
 
-    // Mod+C / Mod+V → send Ctrl+Insert / Ctrl+V (universal copy/paste)
-    // Copy uses Ctrl+Insert (Ctrl+C would SIGINT terminals); paste uses Ctrl+V
-    // because Firefox-Wayland ignores Shift+Insert. kitty.conf maps both to its own actions.
+    // Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste)
+    // Copy: Super+C → Ctrl+Insert (Ctrl+C would SIGINT terminals); kitty maps
+    //   Ctrl+Insert to copy_to_clipboard. Paste: Super+V → Shift+Insert; kitty
+    //   maps Shift+Insert to paste_from_clipboard. Ctrl+V stays passed through to
+    //   vim/neovim. Firefox-Wayland ignores Shift+Insert, so paste there with Ctrl+V.
     Mod+C { spawn-sh "wtype -M ctrl -k insert -m ctrl"; }
-    Mod+V { spawn-sh "wtype -M ctrl -k v -m ctrl"; }
+    Mod+V { spawn-sh "wtype -M shift -k insert -m shift"; }
     // Mod+A → send Ctrl+A (select all). In kitty Ctrl+A stays as readline "line home"
     // (kitty's select_all has different semantics from GUI select-all).
     Mod+A { spawn-sh "wtype -M ctrl -k a -m ctrl"; }
