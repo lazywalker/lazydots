@@ -1,10 +1,10 @@
 -- =========================================================================
--- binds.lua — Niri binds{} ported to Hyprland 0.55+ Lua
+-- binds.lua: Niri binds{} ported to Hyprland 0.55+ Lua
 -- =========================================================================
 --
 -- Desktop shell integration:
---   binds.dms.lua      — DankMaterialShell (loaded when noctalia.lua not found)
---   binds.noctalia.lua — Noctalia shell (loaded when noctalia.lua exists)
+--   binds.dms.lua      : DankMaterialShell (loaded when noctalia.lua not found)
+--   binds.noctalia.lua : Noctalia shell (loaded when noctalia.lua exists)
 --
 -- Common binds below are compositor-level and shell-independent.
 
@@ -49,20 +49,17 @@ hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
     { description = "Send Ctrl+W (close tab in app)" })
 
 -- Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste).
--- Copy: Super+C → Ctrl+Insert (Ctrl+C would SIGINT terminals); kitty maps
---   Ctrl+Insert to copy_to_clipboard.
--- Paste: Super+V → Shift+Insert; kitty maps Shift+Insert to paste_from_clipboard.
---   Ctrl+V stays passed through to vim/neovim (visual-block). Firefox-Wayland
---   ignores Shift+Insert, so paste there with its native Ctrl+V.
+-- Ctrl+C would SIGINT terminals, so copy uses Ctrl+Insert instead; Ctrl+V stays
+-- passed through to vim/neovim for visual-block. Firefox ignores Shift+Insert, so
+-- paste there with its native Ctrl+V.
 hl.bind(mainMod .. " + C", hl.dsp.send_shortcut({ mods = "CTRL", key = "INSERT" }),
     { description = "Copy (send Ctrl+Insert)" })
 hl.bind(mainMod .. " + V", hl.dsp.send_shortcut({ mods = "SHIFT", key = "INSERT" }),
     { description = "Paste (send Shift+Insert)" })
 
--- Mod+A → send Ctrl+A (select all). Intentionally NOT remapped in kitty:
--- Ctrl+A is readline "line home" in the shell, and kitty's select_all selects the
--- entire scrollback (different semantics from GUI "select all"). So in kitty, Mod+A
--- just moves the cursor to the line start (kept as the readline default).
+-- Mod+A → send Ctrl+A (select all). Intentionally not remapped in kitty:
+-- Ctrl+A is readline line-home there, and kitty's select_all selects the entire
+-- scrollback, so we keep Mod+A as the readline default.
 hl.bind(mainMod .. " + A", hl.dsp.send_shortcut({ mods = "CTRL", key = "A" }),
     { description = "Select all (send Ctrl+A)" })
 
@@ -75,7 +72,7 @@ hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen
     { description = "Toggle fullscreen" })
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
-    { description = "Cycle active window width (40% → 50% → 60%)" })
+    { description = "Cycle active window width (40/50/60%)" })
 
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle maximize to edges" })
@@ -356,7 +353,7 @@ hl.bind("ALT + apostrophe", hl.dsp.exec_cmd("ddcutil setvcp 10 + 10"),
     { description = "Increase brightness (alt)", locked = true })
 
 -- =========================================================================
--- Mouse Wheel — workspace switching
+-- Mouse Wheel: workspace switching
 -- =========================================================================
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }),
@@ -438,8 +435,8 @@ end, { description = "Cycle previous window of same class" })
 -- Layout cycling  with notify feedback
 -- =========================================================================
 
--- Super+Shift+M → cycle through master → dwindle → scrolling → monocle
+-- Super+Shift+M cycles layouts: master, dwindle, scrolling, monocle
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(
     "~/.config/hypr/scripts/layout-cycle.sh"
-), { description = "Cycle layout (master → dwindle → scrolling → monocle)" })
+), { description = "Cycle layout (master, dwindle, scrolling, monocle)" })
 

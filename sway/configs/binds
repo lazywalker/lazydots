@@ -15,8 +15,8 @@
 #   toggle-window-floating         → floating toggle
 #
 # Desktop shell integration: include one of the following:
-#   include binds.dms     — DankMaterialShell (default)
-#   include binds.noctalia — Noctalia shell (future)
+#   include binds.dms     : DankMaterialShell (default)
+#   include binds.noctalia : Noctalia shell (future)
 
 
 ### Variables
@@ -42,13 +42,11 @@ bindsym $mod+Q kill
 # Mod+W sends Ctrl+W to focused window (close tab in apps)
 bindsym $mod+W exec wtype -M ctrl -k w -m ctrl
 
-# Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste)
-# Copy: Super+C → Ctrl+Insert (Ctrl+C would SIGINT terminals); kitty maps
-#   Ctrl+Insert to copy_to_clipboard. Paste: Super+V → Shift+Insert; kitty
-#   maps Shift+Insert to paste_from_clipboard. Ctrl+V stays passed through to
-#   vim/neovim. Firefox-Wayland ignores Shift+Insert, so paste there with Ctrl+V.
-bindsym $mod+c exec wtype -M ctrl -k insert -m ctrl
-bindsym $mod+v exec wtype -M shift -k insert -m shift
+# Mod+C / Mod+V → copy/paste, dispatched by focused app (sway/scripts/cp-paste.sh).
+# Firefox ignores wtype Shift+Insert, so the script sends Ctrl+C/V there;
+# terminals get Ctrl+Insert / Shift+Insert to avoid SIGINT from Ctrl+C.
+bindsym $mod+c exec ~/.config/sway/scripts/cp-paste.sh copy
+bindsym $mod+v exec ~/.config/sway/scripts/cp-paste.sh paste
 # Mod+A → send Ctrl+A (select all). In kitty Ctrl+A stays as readline "line home"
 # (kitty's select_all has different semantics from GUI select-all).
 bindsym $mod+a exec wtype -M ctrl -k a -m ctrl
@@ -74,7 +72,7 @@ bindsym $mod+Shift+t exec kitty --title kitty-theme-picker kitten themes
 bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/configs/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
 
 # ============================================================================
-# Navigation — Focus direction
+# Navigation: Focus direction
 # ============================================================================
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
@@ -86,7 +84,7 @@ bindsym $mod+Up     focus up
 bindsym $mod+Right  focus right
 
 # ============================================================================
-# Navigation — Move window in direction
+# Navigation: Move window in direction
 # ============================================================================
 bindsym $mod+Ctrl+$left  move left
 bindsym $mod+Ctrl+$down  move down
@@ -98,7 +96,7 @@ bindsym $mod+Ctrl+Up     move up
 bindsym $mod+Ctrl+Right  move right
 
 # ============================================================================
-# Navigation — Focus monitor/output
+# Navigation: Focus monitor/output
 # ============================================================================
 bindsym $mod+Shift+$left  focus output left
 bindsym $mod+Shift+$down  focus output down
@@ -110,7 +108,7 @@ bindsym $mod+Shift+Up     focus output up
 bindsym $mod+Shift+Right  focus output right
 
 # ============================================================================
-# Navigation — Move window to monitor/output
+# Navigation: Move window to monitor/output
 # ============================================================================
 bindsym $mod+Shift+Ctrl+$left  move container to output left
 bindsym $mod+Shift+Ctrl+$down  move container to output down
@@ -122,7 +120,7 @@ bindsym $mod+Shift+Ctrl+Up     move container to output up
 bindsym $mod+Shift+Ctrl+Right  move container to output right
 
 # ============================================================================
-# Workspaces — Switch
+# Workspaces: Switch
 # ============================================================================
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -135,7 +133,7 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 
 # ============================================================================
-# Workspaces — Move container to workspace
+# Workspaces: Move container to workspace
 # ============================================================================
 bindsym $mod+Ctrl+1 move container to workspace number 1
 bindsym $mod+Ctrl+2 move container to workspace number 2
@@ -148,7 +146,7 @@ bindsym $mod+Ctrl+8 move container to workspace number 8
 bindsym $mod+Ctrl+9 move container to workspace number 9
 
 # ============================================================================
-# Workspaces — Navigate next/prev
+# Workspaces: Navigate next/prev
 # ============================================================================
 bindsym $mod+Page_Down workspace next
 bindsym $mod+Page_Up   workspace prev
@@ -172,20 +170,20 @@ bindsym Alt+x workspace back_and_forth
 bindsym $mod+x workspace back_and_forth
 
 # ============================================================================
-# Layout — Fullscreen
+# Layout: Fullscreen
 # ============================================================================
 bindsym $mod+f       fullscreen toggle
 bindsym $mod+Shift+f fullscreen toggle
 bindsym $mod+m       fullscreen toggle
 
 # ============================================================================
-# Layout — Floating
+# Layout: Floating
 # ============================================================================
 bindsym $mod+Shift+v floating toggle
 bindsym Alt+space   focus mode_toggle
 
 # ============================================================================
-# Layout — Tiling modes
+# Layout: Tiling modes
 # ============================================================================
 bindsym $mod+Ctrl+t layout toggle tabbed split
 bindsym $mod+Ctrl+s layout stacking
@@ -203,7 +201,7 @@ bindsym Ctrl+Tab       focus right
 bindsym Ctrl+Shift+Tab focus left
 
 # ============================================================================
-# Window switching — ported from niri (Mod+Tab / Mod+Escape)
+# Window switching: ported from niri (Mod+Tab / Mod+Escape)
 # ============================================================================
 # fuzzel window switcher: all windows on workspace
 bindsym $mod+Tab       exec ~/.config/sway/scripts/fuzzel-window.sh
@@ -245,7 +243,7 @@ bindsym Ctrl+Shift+bracketright exec ~/.config/hypr/scripts/screen-record.sh sto
 bindsym Ctrl+Alt+bracketright   exec ~/.config/hypr/scripts/screen-record.sh stop
 
 # ============================================================================
-# Volume — PipeWire (matches niri config)
+# Volume: PipeWire (matches niri config)
 # ============================================================================
 bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0
 bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-

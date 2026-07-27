@@ -1,4 +1,4 @@
-// niri configs/binds.dms.kdl — Full binds for DMS desktop shell
+// niri configs/binds.dms.kdl: Full binds for DMS desktop shell
 // Source: include "configs/binds.dms.kdl" in config.kdl
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
@@ -33,7 +33,7 @@ binds {
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+Ctrl+Alt+L allow-when-locked=true hotkey-overlay-title="Lock the Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
 
-    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
+    // Use spawn-sh to run a shell command when you need pipes or multiple commands.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
     // For example, this is a standard bind to toggle the screen reader (orca).
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
@@ -88,13 +88,11 @@ binds {
     // Mod+W sends Ctrl+W to focused window (close tab in apps)
     Mod+W { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
 
-    // Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste)
-    // Copy: Super+C → Ctrl+Insert (Ctrl+C would SIGINT terminals); kitty maps
-    //   Ctrl+Insert to copy_to_clipboard. Paste: Super+V → Shift+Insert; kitty
-    //   maps Shift+Insert to paste_from_clipboard. Ctrl+V stays passed through to
-    //   vim/neovim. Firefox-Wayland ignores Shift+Insert, so paste there with Ctrl+V.
-    Mod+C { spawn-sh "wtype -M ctrl -k insert -m ctrl"; }
-    Mod+V { spawn-sh "wtype -M shift -k insert -m shift"; }
+    // Mod+C / Mod+V → copy/paste, dispatched by focused app (cp-paste.sh).
+    // Firefox ignores wtype Shift+Insert, so the script sends Ctrl+C/V there;
+    // terminals get Ctrl+Insert / Shift+Insert to avoid SIGINT from Ctrl+C.
+    Mod+C { spawn-sh "~/.config/niri/scripts/cp-paste.sh copy"; }
+    Mod+V { spawn-sh "~/.config/niri/scripts/cp-paste.sh paste"; }
     // Mod+A → send Ctrl+A (select all). In kitty Ctrl+A stays as readline "line home"
     // (kitty's select_all has different semantics from GUI select-all).
     Mod+A { spawn-sh "wtype -M ctrl -k a -m ctrl"; }
@@ -190,7 +188,7 @@ binds {
     Mod+Shift+I         { move-workspace-up; }
 
     // =========================================================================
-    // Mouse Wheel — Workspace & Focus
+    // Mouse Wheel: Workspace & Focus
     // =========================================================================
 
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
@@ -279,7 +277,7 @@ binds {
     // While maximize-column leaves gaps and borders around the window,
     // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
     // This bind corresponds to normal window maximizing,
-    // e.g. by double-clicking on the titlebar.
+    // such as by double-clicking on the titlebar.
     Mod+M { maximize-window-to-edges; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
