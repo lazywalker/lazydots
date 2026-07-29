@@ -26,6 +26,7 @@
 # ~/.local/state/noctalia/settings.toml is the GUI override layer, not tracked.
 /hypr/noctalia.lua
 /kitty/current-theme.conf
+/kitty/kitty-color-fix.conf
 /kitty/themes/noctalia.conf
 /niri/noctalia.kdl
 /sway/noctalia

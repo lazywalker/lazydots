@@ -237,6 +237,9 @@ wallpaper_scheme = "m3-content"
         output_path = "~/.config/sway/noctalia"
         post_hook = "swaymsg reload"
 
+[hooks]
+theme_mode_changed = "~/.config/kitty/scripts/apply-color-fix.sh"
+
 [wallpaper]
 directory = "/home/mic/Pictures/wallpapers"
 
