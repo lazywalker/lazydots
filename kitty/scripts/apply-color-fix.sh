@@ -13,11 +13,13 @@ color8  #5b5566
 color13 #9d4edd
 color14 #0073a8
 env COLORFGBG=0;15
+background_opacity 0.95
 EOF
     ;;
   dark)
     cat >"$target" <<'EOF'
 env COLORFGBG=15;0
+background_opacity 0.9
 EOF
     ;;
 esac
