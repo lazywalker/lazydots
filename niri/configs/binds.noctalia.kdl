@@ -387,6 +387,12 @@ binds {
     // Next wallpaper (Noctalia)
     "Mod+Shift+W" hotkey-overlay-title="Next Wallpaper" { spawn-sh "noctalia msg wallpaper-random"; }
 
+    // Toggle light/dark theme mode
+    "Mod+Shift+D" hotkey-overlay-title="Toggle Light/Dark Theme" { spawn-sh "noctalia msg theme-mode-toggle"; }
+
+    // Toggle night light
+    "Mod+Shift+N" hotkey-overlay-title="Toggle Night Light" { spawn-sh "noctalia msg nightlight-toggle"; }
+
     "Mod+Shift+T" hotkey-overlay-title="kitty-theme-picker" { spawn "kitty" "--title" "kitty-theme-picker" "kitten" "themes"; }
 
     // Window switcher (Noctalia)

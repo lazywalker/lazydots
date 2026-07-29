@@ -22,6 +22,12 @@ bindsym $mod+Alt+p exec $ncl panel-toggle session
 # Next wallpaper (Noctalia)
 bindsym $mod+Shift+w exec $ncl wallpaper-random
 
+# Toggle light/dark theme mode
+bindsym $mod+Shift+d exec $ncl theme-mode-toggle
+
+# Toggle night light
+bindsym $mod+Shift+n exec $ncl nightlight-toggle
+
 # Rename workspace (Noctalia — no direct IPC, use fuzzel fallback)
 bindsym Ctrl+Shift+r exec fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} swaymsg rename workspace to "{}"
 

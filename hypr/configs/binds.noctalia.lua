@@ -33,6 +33,14 @@ hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd(ncl .. " panel-toggle session")
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(ncl .. " wallpaper-random"),
     { description = "Next wallpaper (Noctalia)" })
 
+-- Toggle light/dark theme mode
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(ncl .. " theme-mode-toggle"),
+    { description = "Toggle light/dark theme (Noctalia)" })
+
+-- Toggle night light
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ncl .. " nightlight-toggle"),
+    { description = "Toggle night light (Noctalia)" })
+
 -- Rename workspace (fuzzel fallback)
 hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(
     [[sh -c 'fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} hyprctl renameworkspace "{}"']]),
