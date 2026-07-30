@@ -4,3 +4,7 @@
 [submodule "fvwm"]
 	path = fvwm
 	url = https://github.com/lazywalker/fvwm
+[submodule "tmux"]
+	path = tmux
+	url = https://github.com/lazywalker/lazytmux.git
+	branch = main

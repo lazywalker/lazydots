@@ -17,6 +17,7 @@
 !/nvim/
 !/quickshell/
 !/starship.toml
+!/tmux/
 !/sway/
 !/waybar/
 !/ddcutil/
