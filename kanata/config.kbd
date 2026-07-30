@@ -1,0 +1,31 @@
+;; 1. Define physical keys
+(defsrc
+  caps lctrl v
+  h    j    k    l
+  a b c d e f g i m n o p q r s t u w x y z
+)
+
+;; 2. Define the default base layer
+(deflayer default
+  ;; Physical CapsLock: always LCtrl
+  lctrl
+
+  ;; Physical LCtrl: tap for CapsLock, hold for LCtrl
+  (tap-hold-press 150 200 caps lctrl)
+
+  ;; Physical V: Uses tap-hold-release-keys to completely prevent typing misfires
+  (tap-hold-release-keys 150 200 v (layer-while-held nav-layer) (
+    a b c d e f g i m n o p q r s t u w x y z
+  ))
+
+  h     j    k    l
+  a b c d e f g i m n o p q r s t u w x y z
+)
+
+;; 3. Define the navigation layer
+(deflayer nav-layer
+  _    _    _
+  left down up   right
+  _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+)
+
