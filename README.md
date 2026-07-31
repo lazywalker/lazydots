@@ -4,10 +4,7 @@ Personal Linux desktop dotfiles on **Arch Linux + Wayland**. Manages a
 Wayland-centric desktop with **Hyprland** as the primary compositor and
 **Niri** / **Sway** as alternatives, plus **FVWM3** kept as an X11 option.
 
-The `~/.config` directory **is** the git repository — there is no symlink
-manager (no stow / chezmoi). Tracked files are live the moment they're edited.
-Main branch is `main`; day-to-day work happens on `master` and is pushed
-without a remote (this repo has no upstream).
+you may use a dotfiles manager (GUN stow(or rotz) / dotter / yadm). 
 
 ## Compositor layer
 
@@ -98,9 +95,12 @@ strips the marker block on commit; smudge is a no-op. Configured via
 ├── fuzzel/            App launcher
 ├── fcitx5/            Input method
 ├── kitty/             Terminal config (theme injected by Noctalia)
+├── yazi/              File manager config + Noctalia theme
+├── kanata/            Keyboard remapping (HHKB-style layout)
 ├── environment.d/     Session environment variables
 ├── starship.toml      Shell prompt (palette injected by Noctalia)
 ├── nvim/              → submodule: lazywalker/minivim
+├── tmux/              → submodule: lazywalker/lazytmux
 └── fvwm/              → submodule: lazywalker/fvwm
 ```
 
@@ -114,6 +114,7 @@ into the current HEAD in this repo's workflow).
 | Submodule | Path | Upstream |
 |-----------|------|----------|
 | minivim (Neovim) | `nvim/` | https://github.com/lazywalker/minivim |
+| lazytmux (tmux) | `tmux/` | https://github.com/lazywalker/lazytmux |
 | FVWM3 config | `fvwm/` | https://github.com/lazywalker/fvwm |
 
 ```bash
@@ -151,4 +152,5 @@ noctalia config export merged        # effective merged config
 noctalia msg panel-toggle <name>     # toggle launcher/control-center/session
 git submodule update --init --recursive
 git -C nvim push origin master       # then amend pointer in parent repo
+git -C tmux push origin main         # then amend pointer in parent repo
 ```
