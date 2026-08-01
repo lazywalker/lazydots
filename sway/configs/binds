@@ -70,6 +70,8 @@ bindsym $mod+Shift+t exec kitty --title kitty-theme-picker kitten themes
 
 # Hotkey overlay
 bindsym $mod+Shift+Slash exec grep -E '^bindsym' ~/.config/sway/configs/binds | fuzzel --dmenu --width=80 --prompt="💡 Key binds: "
+# Multi-column shortcut cheatsheet (shared across compositors)
+bindsym $mod+Slash exec ~/.config/share/scripts/keyhint.sh
 
 # ============================================================================
 # Navigation: Focus direction

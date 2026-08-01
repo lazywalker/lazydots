@@ -33,6 +33,10 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"),
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd("kitty --title kitty-theme-picker kitten themes"),
     { description = "Kitty theme picker" })
 
+-- Multi-column shortcut cheatsheet (shared across compositors)
+hl.bind(mainMod .. " + SLASH", hl.dsp.exec_cmd("~/.config/share/scripts/keyhint.sh"),
+    { description = "Shortcut cheatsheet" })
+
 hl.bind(mainMod .. " + ALT + D", hl.dsp.exec_cmd(
     [[sh -c 'compgen -c | fuzzel --dmenu --prompt="Run command: " | xargs -r -I{} sh -c "exec {}"']]),
     { description = "Run command (fuzzel dmenu)" })

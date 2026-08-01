@@ -14,6 +14,8 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
+    // Multi-column shortcut cheatsheet (fuzzel). Works under any compositor.
+    Mod+Slash { spawn-sh "~/.config/share/scripts/keyhint.sh"; }
 
     // =========================================================================
     // Application Launchers
@@ -86,16 +88,16 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     // Mod+W sends Ctrl+W to focused window (close tab in apps)
-    Mod+W { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
+    Mod+W hotkey-overlay-title=null { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
 
     // Mod+C / Mod+V → copy/paste, dispatched by focused app (cp-paste.sh).
     // Firefox ignores wtype Shift+Insert, so the script sends Ctrl+C/V there;
     // terminals get Ctrl+Insert / Shift+Insert to avoid SIGINT from Ctrl+C.
-    Mod+C { spawn-sh "~/.config/niri/scripts/cp-paste.sh copy"; }
-    Mod+V { spawn-sh "~/.config/niri/scripts/cp-paste.sh paste"; }
+    Mod+C hotkey-overlay-title=null { spawn-sh "~/.config/niri/scripts/cp-paste.sh copy"; }
+    Mod+V hotkey-overlay-title=null { spawn-sh "~/.config/niri/scripts/cp-paste.sh paste"; }
     // Mod+A → send Ctrl+A (select all). In kitty Ctrl+A stays as readline "line home"
     // (kitty's select_all has different semantics from GUI select-all).
-    Mod+A { spawn-sh "wtype -M ctrl -k a -m ctrl"; }
+    Mod+A hotkey-overlay-title=null { spawn-sh "wtype -M ctrl -k a -m ctrl"; }
 
     // =========================================================================
     // Focus Navigation
@@ -340,10 +342,10 @@ binds {
     Ctrl+Alt+S hotkey-overlay-title="Screenshot + Edit" { spawn-sh "dms screenshot --stdout | swappy -f -"; }
 
     // Screen recording (reuse Hyprland script)
-    Ctrl+Shift+bracketleft  hotkey-overlay-title="Record fullscreen" { spawn-sh "~/.config/hypr/scripts/screen-record.sh full"; }
-    Ctrl+Alt+bracketleft    hotkey-overlay-title="Record region"    { spawn-sh "~/.config/hypr/scripts/screen-record.sh region"; }
-    Ctrl+Shift+bracketright hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
-    Ctrl+Alt+bracketright   hotkey-overlay-title="Stop recording"   { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
+    Ctrl+Shift+bracketleft  hotkey-overlay-title="Record screen"  { spawn-sh "~/.config/hypr/scripts/screen-record.sh full"; }
+    Ctrl+Alt+bracketleft    hotkey-overlay-title="Record region"  { spawn-sh "~/.config/hypr/scripts/screen-record.sh region"; }
+    Ctrl+Shift+bracketright hotkey-overlay-title="Stop recording" { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
+    Ctrl+Alt+bracketright   hotkey-overlay-title="Stop recording" { spawn-sh "~/.config/hypr/scripts/screen-record.sh stop"; }
 
     // =========================================================================
     // System & Power

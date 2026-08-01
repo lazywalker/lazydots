@@ -19,6 +19,7 @@
 !/starship.toml
 !/tmux/
 !/sway/
+!/share/
 !/waybar/
 !/ddcutil/
 !/yazi/
