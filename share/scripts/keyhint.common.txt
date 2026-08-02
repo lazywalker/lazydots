@@ -1,0 +1,23 @@
+Launcher & Session
+Super+Return	Terminal
+Super+D	App launcher
+Super+Alt+D	Run command
+Super+Alt+P	Power menu
+Super+Alt+Ctrl+L	Lock screen
+Super+Shift+P	Turn off monitor
+Super+Slash	This cheatsheet
+
+App Actions
+Super+W	Send Ctrl+W (close tab)
+Super+C	Copy (context)
+Super+V	Paste (context)
+Super+A	Select all
+
+Screenshots & Record
+Print	Screenshot
+Ctrl+Print	Screenshot screen
+Alt+Print	Screenshot window
+Ctrl+Alt+S	Screenshot + edit
+Ctrl+Shift+[	Record screen
+Ctrl+Alt+[	Record region
+Ctrl+Shift+]	Stop recording

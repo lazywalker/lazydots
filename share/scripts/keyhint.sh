@@ -1,82 +1,92 @@
 #!/usr/bin/env bash
 # keyhint.sh — shortcut cheatsheet shown in fuzzel (display-only, single column).
 #
-# Compositor-agnostic: fuzzel runs under Wayland (Hyprland/Niri/Sway) and X11,
-# so the same script works everywhere. Bind a key to it in each compositor.
+# Compositor-agnostic: fuzzel runs under Wayland (Hyprland/Niri/Sway) and X11.
 #
-# Layout: categories as bold colored headers, then "key — description" lines.
-# Pango markup is used for the headers (fuzzel renders it).
+# Data is split:
+#   share/scripts/keyhint.common.txt   – keys common to all compositors
+#   <comp>/scripts/keyhint.<comp>.txt  – compositor-specific keys, maintained
+#                                         next to that compositor's binds.
+# The script auto-detects the running compositor, concatenates common + local,
+# and renders a tab-aligned list in fuzzel.
 #
-# Usage: keyhint.sh [fuzzel args...]
+# Usage: keyhint.sh [--scope niri|sway|hypr] [fuzzel args...]
 
 set -euo pipefail
 
 FUZZEL_BIN="fuzzel"
+SHARE_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/share/scripts"
+SCOPE=""
+
+# Optional --scope override.
+if [[ "${1:-}" == "--scope" ]]; then
+    SCOPE="${2:-}"
+    shift 2 || true
+fi
 
 # ---------------------------------------------------------------------------
-# Shortcut dataset
-# Format per category:  "Category Name" header, then "key<TAB>description".
-# Edit this block to keep your cheatsheet in sync across compositors.
+# Detect compositor: XDG_CURRENT_DESKTOP → fall back to process probe.
 # ---------------------------------------------------------------------------
-DATA="$(cat <<'EOF'
-Launcher & Session
-Super+Return	Terminal
-Super+D	App launcher
-Super+Alt+D	Run command
-Super+Alt+P	Power menu
-Super+L	Lock screen
-Super+Slash	This cheatsheet
+detect_comp() {
+    local de="${XDG_CURRENT_DESKTOP:-}"
+    de="${de,,}"
+    case "$de" in
+        *niri*)    echo niri; return ;;
+        *sway*)    echo sway; return ;;
+        *hypr*)    echo hypr; return ;;
+    esac
+    # Fallback: look for the compositor process.
+    if command -v pgrep >/dev/null 2>&1; then
+        pgrep -x niri    >/dev/null 2>&1 && { echo niri;  return; }
+        pgrep -x sway    >/dev/null 2>&1 && { echo sway;  return; }
+        pgrep -x Hyprland >/dev/null 2>&1 && { echo hypr; return; }
+    fi
+    echo ""
+}
 
-Windows
-Super+Q	Close window
-Super+F	Fullscreen
-Super+Shift+F	Maximize
-Super+Space	Toggle floating
-Super+W	Send Ctrl+W (close tab)
-Super+C	Copy (context)
-Super+V	Paste (context)
-Super+A	Select all
+COMP="${SCOPE:-$(detect_comp)}"
 
-Navigation
-Super+Left/Right	Focus column
-Super+Up/Down	Focus window
-Super+Home/End	First/last column
-Super+1..9	Go to workspace
-Super+Shift+1..9	Move to workspace
-Super+Tab	Cycle windows
+# Map compositor → config dir name and local data file.
+case "$COMP" in
+    niri) LOCAL_DIR="niri"     ;;
+    sway) LOCAL_DIR="sway"     ;;
+    hypr) LOCAL_DIR="hypr"     ;;
+    *)    LOCAL_DIR=""         ;;
+esac
 
-Layout
-Super+H/J/K/L	Move focus (vim)
-Super+Shift+H/J/K/L	Move window
-Super+,	Consume into column
-Super+.	Expel from column
-Super+R	Reset height
-Super+Ctrl+R	Cycle preset height
-Super+Ctrl+F	Expand to width
+CFG_ROOT="${XDG_CONFIG_HOME:-$HOME/.config}"
+COMMON_FILE="$SHARE_DIR/keyhint.common.txt"
+LOCAL_FILE="$CFG_ROOT/$LOCAL_DIR/scripts/keyhint.$COMP.txt"
 
-Screenshots & Record
-Print	Screenshot
-Ctrl+Print	Screenshot screen
-Alt+Print	Screenshot window
-Ctrl+Alt+S	Screenshot + edit
-Ctrl+Shift+[	Record screen
-Ctrl+Alt+[	Record region
-Ctrl+Shift+]	Stop recording
-EOF
-)"
+# ---------------------------------------------------------------------------
+# Build the full dataset: common file (under "General") + local file.
+# Each data file uses: "Category" header lines, then "key<TAB>desc" lines.
+# ---------------------------------------------------------------------------
+DATA=""
+if [[ -f "$COMMON_FILE" ]]; then
+    DATA+=$'General\n'
+    DATA+="$(cat "$COMMON_FILE")"
+    DATA+=$'\n'
+fi
+if [[ -n "$LOCAL_DIR" && -f "$LOCAL_FILE" ]]; then
+    DATA+=$'\n'
+    DATA+="$(cat "$LOCAL_FILE")"
+    DATA+=$'\n'
+fi
 
 # ---------------------------------------------------------------------------
 # Render: build fuzzel input lines.
-# fuzzel dmenu shows lines as plain text (no Pango), so we avoid markup and
-# use a simple prefix + spacing for hierarchy.
+# fuzzel dmenu shows lines as plain text (no Pango markup), so we avoid markup
+# and use a simple prefix + spacing for hierarchy. Descriptions are tab-aligned.
 # ---------------------------------------------------------------------------
-out=""
 tab=$'\t'
-# First pass: find the longest key so descriptions can be tab-aligned.
+out=""
+
+# First pass: longest key for tab alignment.
 maxkey=0
 while IFS= read -r line; do
     [[ -z "$line" ]] && continue
-    [[ "$line" == *"$tab"* ]] && continue
+    [[ "$line" == *"$tab"* ]] || continue
     k="${line%%$tab*}"
     ((${#k} > maxkey)) && maxkey=${#k}
 done <<< "$DATA"
@@ -84,14 +94,13 @@ done <<< "$DATA"
 while IFS= read -r line; do
     [[ -z "$line" ]] && continue
     if [[ "$line" != *"$tab"* ]]; then
-        # Category header: blank line above + prefixed title.
+        # Category / group header.
         [[ -z "$out" ]] || out+=$'\n'
         out+="▸ ${line}"
         out+=$'\n'
     else
         key="${line%%$tab*}"
         desc="${line#*$tab}"
-        # Pad key to maxkey, then a tab before the description → aligned column.
         padded=$(printf '%-*s' "$maxkey" "$key")
         out+="   ${padded}${tab}${desc}"
         out+=$'\n'
@@ -106,5 +115,5 @@ out="${out%$'\n'}"
 # ---------------------------------------------------------------------------
 printf '%s' "$out" | "$FUZZEL_BIN" --dmenu \
     --prompt="Shortcuts — Esc to close   " \
-    --lines 45 --width 50 \
+    --lines 45 --width 70 \
     "$@" >/dev/null 2>&1 || true

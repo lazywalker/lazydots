@@ -1,10 +1,15 @@
 [submodule "nvim"]
 	path = nvim
 	url = https://github.com/lazywalker/minivim.git
+	branch = master
+	update = merge
 [submodule "fvwm"]
 	path = fvwm
 	url = https://github.com/lazywalker/fvwm
+	branch = master
+	update = merge
 [submodule "tmux"]
 	path = tmux
 	url = https://github.com/lazywalker/lazytmux.git
 	branch = main
+	update = merge

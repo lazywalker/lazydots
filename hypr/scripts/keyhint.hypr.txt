@@ -1,0 +1,35 @@
+Hyprland — Focus & Move
+Super+Left/Right/Up/Down	Focus window
+Super+H/J/K/L	Focus (vim)
+Super+Ctrl+Left/Right/Up/Down	Move window
+Super+Shift+Left/Right/Up/Down	Focus monitor
+Super+Shift+Ctrl+Left/Right/Up/Down	Move to monitor
+Super+1..9	Go to workspace
+Super+Ctrl+1..9	Move to workspace
+Super+U/I	Prev/next workspace
+Super+X	Previous workspace
+Super+Tab	Last window
+Super+Escape	Cycle same-class window
+
+Hyprland — Layout
+Super+Q	Close window
+Super+F	Fit view / maximize
+Super+Shift+F / Super+M	Fullscreen
+Super+Shift+V	Floating toggle
+Super+Shift+C	Center floating window
+Super+T	Toggle group (tabbed)
+Ctrl+Tab	Next tab in group
+Super+BracketLeft/Right	Consume/expel (scrolling/group)
+Super+Shift+R	Reload config
+Super+Shift+M	Cycle layout (master/dwindle/scroll/monocle)
+
+Hyprland — Resize
+Super+Minus/Equal	Window width -/+
+Super+Shift+Minus/Equal	Window height -/+
+Super+Ctrl+F	Expand width
+Super+Alt+Arrows/hjkl	Resize direction
+
+Hyprland — System
+Super+Shift+P	Power off monitors
+Super+Ctrl+Alt+L	Lock screen
+Ctrl+Alt+Delete	Exit Hyprland (confirm)
