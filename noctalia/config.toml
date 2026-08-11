@@ -216,6 +216,13 @@ settings_show_advanced = true
     shortcut = "5"
     variant = "destructive"
 
+[shell.screenshot]
+save_to_file      = true
+directory         = "~/Pictures/Screenshots"
+filename_pattern  = ""
+copy_to_clipboard = true
+freeze_screen     = true
+
 [theme]
 builtin = "Noctalia"
 community_palette = "One"
