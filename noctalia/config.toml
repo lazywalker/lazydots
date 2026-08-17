@@ -281,6 +281,9 @@ show_condition = false
 
 [widget.workspaces]
 active_pill_size = 2.3000000000000003
-display = "none"
+show_labels = false
 inactive_pill_size = 1.3500000000000001
 pill_scale = 0.70000000000000007
+
+[osd.kinds]
+keyboard_layout = false

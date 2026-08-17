@@ -16,7 +16,6 @@
 !/noctalia/
 !/nvim/
 !/quickshell/
-!/starship.toml
 !/tmux/
 !/sway/
 !/swappy/
@@ -35,6 +34,7 @@
 /niri/noctalia.kdl
 /sway/noctalia
 /fuzzel/themes/noctalia
+/starship.toml
 
 # Runtime state (written by scripts at runtime)
 /hypr/.layout

@@ -24,8 +24,8 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"),
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"),
     { description = "Open file manager (Thunar)" })
 
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"),
-    { description = "Open web browser (Firefox)" })
+-- hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"),
+--     { description = "Open web browser (Firefox)" })
 
 -- hl.bind("F2", hl.dsp.exec_cmd("fuzzel"),
 --     { description = "Fuzzel app launcher (fallback)" })
