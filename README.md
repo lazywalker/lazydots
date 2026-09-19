@@ -73,14 +73,6 @@ refresh:
 
 Plus the Neovim-generated `nvim/lua/matugen.lua` and `nvim/lua/plugins/base16.lua`.
 
-### starship.toml clean filter
-
-`starship.toml` mixes hand-written styles with a Noctalia-generated palette
-block (starship has no native `include`). `.gitattributes` binds a
-`noctalia-starship` clean filter (`hypr/scripts/starship-clean-filter.sh`) that
-strips the marker block on commit; smudge is a no-op. Configured via
-`filter.noctalia-starship.{clean,smudge}` in local git config.
-
 ## Repository layout
 
 ```

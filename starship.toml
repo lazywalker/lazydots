@@ -1,9 +1,0 @@
-
-
-# =========================================================================
-# Prompt styles — colored with the Noctalia palette.
-# This section lives outside the Noctalia marker block above, so it is
-# preserved across Noctalia theme refreshes (only the palette block is
-# rewritten). Tracked in git via the noctalia-starship clean filter.
-# =========================================================================
-

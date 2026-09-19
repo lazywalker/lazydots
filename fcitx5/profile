@@ -10,25 +10,25 @@ DefaultIM=shuangpin
 # Name
 Name=keyboard-us
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/1]
 # Name
 Name=hallelujah
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/2]
 # Name
 Name=pinyin
 # Layout
-Layout=
+# Layout=
 
 [Groups/0/Items/3]
 # Name
 Name=shuangpin
 # Layout
-Layout=
+# Layout=
 
 [GroupOrder]
 0=Default

@@ -29,7 +29,7 @@ bindsym $mod+Shift+d exec $ncl theme-mode-toggle
 bindsym $mod+Shift+n exec $ncl nightlight-toggle
 
 # Rename workspace (Noctalia — no direct IPC, use fuzzel fallback)
-bindsym Ctrl+Shift+r exec fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} swaymsg rename workspace to "{}"
+# bindsym Ctrl+Shift+r exec fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} swaymsg rename workspace to "{}"
 
 # Window switcher (Noctalia)
 unbindsym $mod+Tab

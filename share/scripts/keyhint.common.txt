@@ -1,5 +1,7 @@
 Launcher & Session
 Super+Return	Terminal
+Super+Shift+E	File manager
+Super+Shift+B	Browser
 Super+D	App launcher
 Super+Alt+D	Run command
 Super+Alt+P	Power menu
@@ -7,8 +9,16 @@ Super+Alt+Ctrl+L	Lock screen
 Super+Shift+P	Turn off monitor
 Super+Slash	This cheatsheet
 
+Window
+Super+Shift+Q	Close window
+Alt+R	Resize window
+
+Workspaces
+Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
+Super+G/B	Prev/next workspace
+Super+X	Previous workspace
+
 App Actions
-Super+W	Send Ctrl+W (close tab)
 Super+C	Copy (context)
 Super+V	Paste (context)
 Super+A	Select all

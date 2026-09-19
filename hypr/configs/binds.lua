@@ -21,11 +21,11 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"),
 
 -- $mod+D → see binds.dms.lua (DMS) or binds.noctalia.lua (Noctalia)
 
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("thunar"),
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("thunar"),
     { description = "Open file manager (Thunar)" })
 
--- hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("firefox"),
---     { description = "Open web browser (Firefox)" })
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("firefox"),
+    { description = "Open web browser (Firefox)" })
 
 -- hl.bind("F2", hl.dsp.exec_cmd("fuzzel"),
 --     { description = "Fuzzel app launcher (fallback)" })
@@ -45,12 +45,36 @@ hl.bind(mainMod .. " + ALT + D", hl.dsp.exec_cmd(
 -- Window Management
 -- =========================================================================
 
-hl.bind(mainMod .. " + Q", hl.dsp.window.close(),
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close(),
     { description = "Close focused window" })
 
+hl.bind(mainMod .. " + Q", hl.dsp.focus({ workspace = 1 }),
+    { description = "Go to workspace 1 (QWERTY row)" })
+
 -- Mod+W sends Ctrl+W to the focused window (close tab in apps)
-hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
-    { description = "Send Ctrl+W (close tab in app)" })
+-- hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
+--     { description = "Send Ctrl+W (close tab in app)" })
+
+hl.bind(mainMod .. " + W", hl.dsp.focus({ workspace = 2 }),
+    { description = "Go to workspace 2 (QWERTY row)" })
+
+hl.bind(mainMod .. " + E", hl.dsp.focus({ workspace = 3 }),
+    { description = "Go to workspace 3 (QWERTY row)" })
+
+hl.bind(mainMod .. " + Y", hl.dsp.focus({ workspace = 6 }),
+    { description = "Go to workspace 6 (QWERTY row)" })
+
+hl.bind(mainMod .. " + U", hl.dsp.focus({ workspace = 7 }),
+    { description = "Go to workspace 7 (QWERTY row)" })
+
+hl.bind(mainMod .. " + I", hl.dsp.focus({ workspace = 8 }),
+    { description = "Go to workspace 8 (QWERTY row)" })
+
+hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = 9 }),
+    { description = "Go to workspace 9 (QWERTY row)" })
+
+hl.bind(mainMod .. " + P", hl.dsp.focus({ workspace = 10 }),
+    { description = "Go to workspace 10 (QWERTY row)" })
 
 -- Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste).
 -- Ctrl+C would SIGINT terminals, so copy uses Ctrl+Insert instead; Ctrl+V stays
@@ -75,7 +99,10 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("~/.config/hypr/scripts/fit-or-maximi
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle fullscreen" })
 
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
+hl.bind(mainMod .. " + R", hl.dsp.focus({ workspace = 4 }),
+    { description = "Go to workspace 4 (QWERTY row)" })
+
+hl.bind("ALT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
     { description = "Cycle active window width (40/50/60%)" })
 
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
@@ -87,7 +114,10 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }),
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.center(),
     { description = "Center floating window" })
 
-hl.bind(mainMod .. " + T", hl.dsp.group.toggle(),
+hl.bind(mainMod .. " + T", hl.dsp.focus({ workspace = 5 }),
+    { description = "Go to workspace 5 (QWERTY row)" })
+
+hl.bind(mainMod .. " + ALT + T", hl.dsp.group.toggle(),
     { description = "Toggle group (tabbed column)" })
 
 hl.bind("CTRL + Tab", hl.dsp.group.next(),
@@ -130,44 +160,44 @@ hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "d" }),
 -- Window Movement
 -- =========================================================================
 
-hl.bind(mainMod .. " + CTRL + left", hl.dsp.window.move({ direction = "l" }),
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ direction = "l" }),
     { description = "Move window left" })
-hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ direction = "r" }),
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "r" }),
     { description = "Move window right" })
-hl.bind(mainMod .. " + CTRL + up", hl.dsp.window.move({ direction = "u" }),
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "u" }),
     { description = "Move window up" })
-hl.bind(mainMod .. " + CTRL + down", hl.dsp.window.move({ direction = "d" }),
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "d" }),
     { description = "Move window down" })
 
-hl.bind(mainMod .. " + CTRL + H", hl.dsp.window.move({ direction = "l" }),
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }),
     { description = "Move window left (vim)" })
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.window.move({ direction = "r" }),
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }),
     { description = "Move window right (vim)" })
-hl.bind(mainMod .. " + CTRL + K", hl.dsp.window.move({ direction = "u" }),
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }),
     { description = "Move window up (vim)" })
-hl.bind(mainMod .. " + CTRL + J", hl.dsp.window.move({ direction = "d" }),
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }),
     { description = "Move window down (vim)" })
 
 -- =========================================================================
 -- Monitor Navigation
 -- =========================================================================
 
-hl.bind(mainMod .. " + SHIFT + left", hl.dsp.focus({ monitor = "l" }),
+hl.bind(mainMod .. " + ALT + left", hl.dsp.focus({ monitor = "l" }),
     { description = "Focus monitor left" })
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.focus({ monitor = "r" }),
+hl.bind(mainMod .. " + ALT + right", hl.dsp.focus({ monitor = "r" }),
     { description = "Focus monitor right" })
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.focus({ monitor = "u" }),
+hl.bind(mainMod .. " + ALT + up", hl.dsp.focus({ monitor = "u" }),
     { description = "Focus monitor up" })
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.focus({ monitor = "d" }),
+hl.bind(mainMod .. " + ALT + down", hl.dsp.focus({ monitor = "d" }),
     { description = "Focus monitor down" })
 
-hl.bind(mainMod .. " + SHIFT + H", hl.dsp.focus({ monitor = "l" }),
+hl.bind(mainMod .. " + ALT + H", hl.dsp.focus({ monitor = "l" }),
     { description = "Focus monitor left (vim)" })
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.focus({ monitor = "r" }),
+hl.bind(mainMod .. " + ALT + L", hl.dsp.focus({ monitor = "r" }),
     { description = "Focus monitor right (vim)" })
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.focus({ monitor = "u" }),
+hl.bind(mainMod .. " + ALT + K", hl.dsp.focus({ monitor = "u" }),
     { description = "Focus monitor up (vim)" })
-hl.bind(mainMod .. " + SHIFT + J", hl.dsp.focus({ monitor = "d" }),
+hl.bind(mainMod .. " + ALT + J", hl.dsp.focus({ monitor = "d" }),
     { description = "Focus monitor down (vim)" })
 
 hl.bind(mainMod .. " + SHIFT + CTRL + left", hl.dsp.window.move({ monitor = "l" }),
@@ -198,27 +228,29 @@ for i = 1, 9 do
 end
 
 for i = 1, 9 do
-    hl.bind(mainMod .. " + CTRL + " .. i, hl.dsp.window.move({ workspace = i }),
-        { description = "Move window to workspace " .. i })
+    hl.bind(mainMod .. " + SHIFT + " .. i, function()
+        hl.dispatch(hl.dsp.window.move({ workspace = i }))
+        hl.dispatch(hl.dsp.focus({ workspace = i }))
+    end, { description = "Move window to workspace " .. i .. " and follow" })
 end
 
 hl.bind(mainMod .. " + page_up", hl.dsp.focus({ workspace = "e-1" }),
     { description = "Previous workspace" })
 hl.bind(mainMod .. " + page_down", hl.dsp.focus({ workspace = "e+1" }),
     { description = "Next workspace" })
-hl.bind(mainMod .. " + U", hl.dsp.focus({ workspace = "e-1" }),
-    { description = "Previous workspace" })
-hl.bind(mainMod .. " + I", hl.dsp.focus({ workspace = "e+1" }),
+hl.bind(mainMod .. " + B", hl.dsp.focus({ workspace = "e+1" }),
     { description = "Next workspace" })
+hl.bind(mainMod .. " + G", hl.dsp.focus({ workspace = "e-1" }),
+    { description = "Previous workspace" })
 
 hl.bind(mainMod .. " + CTRL + page_up", hl.dsp.window.move({ workspace = "e-1" }),
     { description = "Move window to previous workspace" })
 hl.bind(mainMod .. " + CTRL + page_down", hl.dsp.window.move({ workspace = "e+1" }),
     { description = "Move window to next workspace" })
-hl.bind(mainMod .. " + CTRL + U", hl.dsp.window.move({ workspace = "e-1" }),
-    { description = "Move window to previous workspace" })
-hl.bind(mainMod .. " + CTRL + I", hl.dsp.window.move({ workspace = "e+1" }),
+hl.bind(mainMod .. " + CTRL + U", hl.dsp.window.move({ workspace = "e+1" }),
     { description = "Move window to next workspace" })
+hl.bind(mainMod .. " + CTRL + I", hl.dsp.window.move({ workspace = "e-1" }),
+    { description = "Move window to previous workspace" })
 
 hl.bind("ALT + X", hl.dsp.focus({ workspace = "previous" }),
     { description = "Switch to previous workspace" })
@@ -240,22 +272,22 @@ hl.bind(mainMod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50, rel
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.resize({ x = 500, y = 0, relative = true }),
     { description = "Expand column width" })
 
-hl.bind(mainMod .. " + ALT + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + left", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
     { description = "Resize window left" })
-hl.bind(mainMod .. " + ALT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
     { description = "Resize window right" })
-hl.bind(mainMod .. " + ALT + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
     { description = "Resize window up" })
-hl.bind(mainMod .. " + ALT + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
     { description = "Resize window down" })
 
-hl.bind(mainMod .. " + ALT + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + H", hl.dsp.window.resize({ x = -50, y = 0, relative = true }),
     { description = "Resize window left (vim)" })
-hl.bind(mainMod .. " + ALT + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + L", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),
     { description = "Resize window right (vim)" })
-hl.bind(mainMod .. " + ALT + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -50, relative = true }),
     { description = "Resize window up (vim)" })
-hl.bind(mainMod .. " + ALT + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
+hl.bind(mainMod .. " + ALT + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),
     { description = "Resize window down (vim)" })
 
 -- =========================================================================
@@ -298,8 +330,7 @@ hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd("loginctl lock-session")
 
 -- $mod+Alt+P / $mod+Alt+B / $mod+Shift+W / Ctrl+Shift+R → see binds.dms.lua or binds.noctalia.lua
 
-hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("overskride"),
-    { description = "Bluetooth settings (Overskride)" })
+-- Bluetooth settings (overskride) removed: browser now on Mod+Shift+B
 
 -- $mod+Shift+W / Ctrl+Shift+R → see binds.dms.lua or binds.noctalia.lua
 

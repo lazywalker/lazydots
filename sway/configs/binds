@@ -31,16 +31,28 @@ set $term kitty
 # App Launchers (from niri)
 # ============================================================================
 bindsym $mod+Return exec $term
-bindsym $mod+e exec thunar
-# bindsym $mod+b exec firefox
+bindsym $mod+Shift+e exec thunar
+bindsym $mod+Shift+b exec firefox
 # $mod+d → see binds.dms (DMS launcher)
 # $mod+O: overview removed (quickshell overview is Hyprland-only)
 
 # Close/kill window
-bindsym $mod+Q kill
+bindsym $mod+Shift+Q kill
+
+# QWERTY row → workspaces 1..6 (Mod+1..9 unchanged)
+bindsym $mod+q workspace number 1
+bindsym $mod+w workspace number 2
+bindsym $mod+e workspace number 3
+bindsym $mod+r workspace number 4
+bindsym $mod+t workspace number 5
+bindsym $mod+y workspace number 6
+bindsym $mod+u workspace number 7
+bindsym $mod+i workspace number 8
+bindsym $mod+o workspace number 9
+bindsym $mod+p workspace number 10
 
 # Mod+W sends Ctrl+W to focused window (close tab in apps)
-bindsym $mod+W exec wtype -M ctrl -k w -m ctrl
+# bindsym $mod+W exec wtype -M ctrl -k w -m ctrl
 
 # Mod+C / Mod+V → copy/paste, dispatched by focused app (sway/scripts/cp-paste.sh).
 # Firefox ignores wtype Shift+Insert, so the script sends Ctrl+C/V there;
@@ -58,8 +70,7 @@ bindsym $mod+Alt+s exec sh -c "pkill orca || exec orca"
 
 # Power menu, bar toggle, wallpaper, workspace rename → see binds.dms
 
-# Bluetooth settings via Overskride
-bindsym $mod+Shift+b exec overskride
+# Bluetooth settings via Overskride (removed)
 
 # Next wallpaper → see binds.dms
 
@@ -88,26 +99,26 @@ bindsym $mod+Right  focus right
 # ============================================================================
 # Navigation: Move window in direction
 # ============================================================================
-bindsym $mod+Ctrl+$left  move left
-bindsym $mod+Ctrl+$down  move down
-bindsym $mod+Ctrl+$up    move up
-bindsym $mod+Ctrl+$right move right
-bindsym $mod+Ctrl+Left   move left
-bindsym $mod+Ctrl+Down   move down
-bindsym $mod+Ctrl+Up     move up
-bindsym $mod+Ctrl+Right  move right
+bindsym $mod+Shift+$left  move left
+bindsym $mod+Shift+$down  move down
+bindsym $mod+Shift+$up    move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
 
 # ============================================================================
 # Navigation: Focus monitor/output
 # ============================================================================
-bindsym $mod+Shift+$left  focus output left
-bindsym $mod+Shift+$down  focus output down
-bindsym $mod+Shift+$up    focus output up
-bindsym $mod+Shift+$right focus output right
-bindsym $mod+Shift+Left   focus output left
-bindsym $mod+Shift+Down   focus output down
-bindsym $mod+Shift+Up     focus output up
-bindsym $mod+Shift+Right  focus output right
+bindsym $mod+Alt+$left  focus output left
+bindsym $mod+Alt+$down  focus output down
+bindsym $mod+Alt+$up    focus output up
+bindsym $mod+Alt+$right focus output right
+bindsym $mod+Alt+Left   focus output left
+bindsym $mod+Alt+Down   focus output down
+bindsym $mod+Alt+Up     focus output up
+bindsym $mod+Alt+Right  focus output right
 
 # ============================================================================
 # Navigation: Move window to monitor/output
@@ -137,23 +148,23 @@ bindsym $mod+9 workspace number 9
 # ============================================================================
 # Workspaces: Move container to workspace
 # ============================================================================
-bindsym $mod+Ctrl+1 move container to workspace number 1
-bindsym $mod+Ctrl+2 move container to workspace number 2
-bindsym $mod+Ctrl+3 move container to workspace number 3
-bindsym $mod+Ctrl+4 move container to workspace number 4
-bindsym $mod+Ctrl+5 move container to workspace number 5
-bindsym $mod+Ctrl+6 move container to workspace number 6
-bindsym $mod+Ctrl+7 move container to workspace number 7
-bindsym $mod+Ctrl+8 move container to workspace number 8
-bindsym $mod+Ctrl+9 move container to workspace number 9
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
 
 # ============================================================================
 # Workspaces: Navigate next/prev
 # ============================================================================
 bindsym $mod+Page_Down workspace next
 bindsym $mod+Page_Up   workspace prev
-bindsym $mod+u         workspace next
-bindsym $mod+i         workspace prev
+bindsym $mod+b         workspace next
+bindsym $mod+g         workspace prev
 
 # Move container to next/prev workspace
 bindsym $mod+Ctrl+Page_Down move container to workspace next
@@ -191,9 +202,9 @@ bindsym $mod+Ctrl+t layout toggle tabbed split
 bindsym $mod+Ctrl+s layout stacking
 bindsym $mod+Ctrl+e layout toggle split
 
-# Split directions
-bindsym $mod+Alt+h splith
-bindsym $mod+Alt+v splitv
+# Split directions ($mod+Alt+h is now focus-output; kept here with Shift added)
+bindsym $mod+Alt+Shift+h splith
+bindsym $mod+Alt+Shift+v splitv
 
 # Focus parent container (moved from $mod+a to make room for select-all)
 bindsym $mod+Shift+a focus parent
@@ -228,7 +239,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym Mod1+r mode "resize"
 
 # ============================================================================
 # Scratchpad
@@ -285,7 +296,7 @@ bindsym --locked Mod1+apostrophe exec ddcutil setvcp 10 + 10
 # System
 # ============================================================================
 # Quit / exit session
-bindsym $mod+Shift+e  exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+# $mod+Shift+e is now the file manager (Thunar); exit stays on Ctrl+Alt+Delete.
 bindsym Ctrl+Alt+Delete exec swaynag -t warning -m 'Exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Power off monitors (by swayidle)

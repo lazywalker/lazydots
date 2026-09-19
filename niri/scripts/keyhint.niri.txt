@@ -4,20 +4,20 @@ Super+Up/Down	Focus window
 Super+H/J/K/L	Focus (vim)
 Super+Home/End	First/last column
 Super+1..9	Go to workspace
-Super+Shift+1..9	Move to workspace
-Super+U/I	Prev/next workspace
-Super+Tab	Cycle windows
+Super+Shift+1..9	Move to workspace & follow
+Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
+Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 
 Niri — Move & Layout
-Super+Ctrl+Left/Right/Up/Down	Move window
-Super+Ctrl+H/J/K/L	Move window (vim)
-Super+Shift+H/J/K/L	Focus monitor
+Super+Shift+Left/Right/Up/Down	Move window
+Super+Shift+H/J/K/L	Move window (vim)
+Super+Alt+H/J/K/L	Focus monitor
 Super+Shift+Ctrl+H/J/K/L	Move to monitor
 Super+,	Consume into column
 Super+.	Expel from column
 Super+BracketLeft/Right	Consume/expel side
-Super+R	Cycle column width
+Alt+R	Cycle column width
 Super+Shift+R	Cycle width back
 Super+Ctrl+R	Reset height
 Super+Ctrl+Shift+R	Cycle height preset
@@ -33,6 +33,8 @@ Super+Alt+V	Switch float/tiling focus
 Super+T	Tabbed column
 Ctrl+Tab / Ctrl+Shift+Tab	Tab switch in column
 
+Niri — Shell
+Super+Shift+O	Toggle overview
+
 Niri — System
-Super+Shift+E	Quit niri (confirm)
 Ctrl+Alt+Delete	Quit niri (confirm)

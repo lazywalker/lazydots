@@ -23,8 +23,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+E hotkey-overlay-title="Open File Manager: Thunar" { spawn "thunar"; }
-    // Mod+B hotkey-overlay-title="Open Web Browser: Firefox" { spawn "firefox"; }
+    "Mod+Shift+E" hotkey-overlay-title="Open File Manager: Thunar" { spawn "thunar"; }
+    "Mod+Shift+B" hotkey-overlay-title="Open Web Browser: Firefox" { spawn "firefox"; }
     // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+D allow-when-locked=false hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+S hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
@@ -84,12 +84,23 @@ binds {
     // Overview & Window Close
     // =========================================================================
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+Shift+O repeat=false { toggle-overview; }
 
-    Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q repeat=false { close-window; }
+
+    Mod+Q repeat=false { focus-workspace 1; }
+    Mod+W repeat=false { focus-workspace 2; }
+    Mod+E repeat=false { focus-workspace 3; }
+    Mod+R repeat=false { focus-workspace 4; }
+    Mod+T repeat=false { focus-workspace 5; }
+    Mod+Y repeat=false { focus-workspace 6; }
+    Mod+U repeat=false { focus-workspace 7; }
+    Mod+I repeat=false { focus-workspace 8; }
+    Mod+O repeat=false { focus-workspace 9; }
+    Mod+P repeat=false { focus-workspace 10; }
 
     // Mod+W sends Ctrl+W to focused window (close tab in apps)
-    Mod+W hotkey-overlay-title=null { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
+    // Mod+W hotkey-overlay-title=null { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
 
     // Mod+C / Mod+V → copy/paste, dispatched by focused app (cp-paste.sh).
     // Firefox ignores wtype Shift+Insert, so the script sends Ctrl+C/V there;
@@ -117,14 +128,14 @@ binds {
     // Move Window / Column
     // =========================================================================
 
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
-    Mod+Ctrl+L     { move-column-right; }
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
+    Mod+Shift+L     { move-column-right; }
 
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
@@ -142,14 +153,14 @@ binds {
     // Monitor Navigation
     // =========================================================================
 
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Down  { focus-monitor-down; }
+    Mod+Alt+Up    { focus-monitor-up; }
+    Mod+Alt+Right { focus-monitor-right; }
+    Mod+Alt+H     { focus-monitor-left; }
+    Mod+Alt+J     { focus-monitor-down; }
+    Mod+Alt+K     { focus-monitor-up; }
+    Mod+Alt+L     { focus-monitor-right; }
 
     Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
     Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
@@ -174,8 +185,8 @@ binds {
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
-    Mod+U              { focus-workspace-down; }
-    Mod+I              { focus-workspace-up; }
+    Mod+B              { focus-workspace-down; }
+    Mod+G              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
     Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
     Mod+Ctrl+U         { move-column-to-workspace-down; }
@@ -233,15 +244,16 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    // Move + follow: niri allows only one action per bind, so chain via IPC.
+    Mod+Shift+1 { spawn-sh "niri msg action move-column-to-workspace 1 && niri msg action focus-workspace 1"; }
+    Mod+Shift+2 { spawn-sh "niri msg action move-column-to-workspace 2 && niri msg action focus-workspace 2"; }
+    Mod+Shift+3 { spawn-sh "niri msg action move-column-to-workspace 3 && niri msg action focus-workspace 3"; }
+    Mod+Shift+4 { spawn-sh "niri msg action move-column-to-workspace 4 && niri msg action focus-workspace 4"; }
+    Mod+Shift+5 { spawn-sh "niri msg action move-column-to-workspace 5 && niri msg action focus-workspace 5"; }
+    Mod+Shift+6 { spawn-sh "niri msg action move-column-to-workspace 6 && niri msg action focus-workspace 6"; }
+    Mod+Shift+7 { spawn-sh "niri msg action move-column-to-workspace 7 && niri msg action focus-workspace 7"; }
+    Mod+Shift+8 { spawn-sh "niri msg action move-column-to-workspace 8 && niri msg action focus-workspace 8"; }
+    Mod+Shift+9 { spawn-sh "niri msg action move-column-to-workspace 9 && niri msg action focus-workspace 9"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
@@ -267,7 +279,7 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     // Cycle through widths set in preset-column-widths.
-    Mod+R { switch-preset-column-width; }
+    Alt+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
     Mod+Shift+R { switch-preset-column-width-back; }
 
@@ -314,7 +326,7 @@ binds {
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
     // rather than stacked on top of each other.
-    Mod+T { toggle-column-tabbed-display; }
+    Mod+Alt+T { toggle-column-tabbed-display; }
 
     // Tab switching in tabbed columns: Ctrl+Tab / Ctrl+Shift+Tab
     Ctrl+Tab       { focus-window-down; }
@@ -353,7 +365,7 @@ binds {
     // =========================================================================
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    // Mod+Shift+E is now the file manager (Thunar); exit stays on Ctrl+Alt+Delete.
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
@@ -377,14 +389,13 @@ binds {
     // =========================================================================
 
     // Rename workspace via fuzzel
-    Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" { spawn-sh "fuzzel --dmenu --prompt='Rename workspace: ' | xargs -r -I{} niri msg action rename-workspace '{}'"; }
+    // Ctrl+Shift+R hotkey-overlay-title="Rename Workspace" { spawn-sh "fuzzel --dmenu --prompt='Rename workspace: ' | xargs -r -I{} niri msg action rename-workspace '{}'"; }
 
     // =========================================================================
     // Desktop Controls
     // =========================================================================
 
     // Bluetooth settings
-    "Mod+Shift+B" hotkey-overlay-title="Bluetooth Settings" { spawn "overskride"; }
 
     // Next wallpaper (Noctalia)
     "Mod+Shift+W" hotkey-overlay-title="Next Wallpaper" { spawn-sh "noctalia msg wallpaper-random"; }

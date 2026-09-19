@@ -2,16 +2,18 @@ Sway — Focus
 Super+Left/Right/Up/Down	Focus direction
 Super+H/J/K/L	Focus (vim)
 Super+1..9	Go to workspace
-Super+Shift+1..9	Move to workspace
-Super+U/I	Prev/next workspace
+Super+Shift+1..9	Move to workspace & follow
+Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
+Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 Super+Shift+A	Focus parent container
 Super+Tab	Window switcher (fuzzel)
 Super+Escape	Switcher (same app)
 
 Sway — Move & Output
-Super+Ctrl+Left/Right/Up/Down	Move window
-Super+Shift+Left/Right/Up/Down	Focus output
+Super+Shift+Left/Right/Up/Down	Move window
+Super+Shift+H/J/K/L	Move window (vim)
+Super+Alt+Left/Right/Up/Down	Focus output
 Super+Shift+Ctrl+Left/Right/Up/Down	Move to output
 Super+Shift+U/I	Move workspace to output
 
@@ -22,10 +24,10 @@ Alt+Space	Focus mode toggle
 Super+Ctrl+T	Tabbed layout
 Super+Ctrl+S	Stacking layout
 Super+Ctrl+E	Toggle split (h/v)
-Super+Alt+H/V	Split horizontal/vertical
+Super+Alt+Shift+H/V	Split horizontal/vertical
 
 Sway — Resize mode
-Super+R	Enter resize mode
+Alt+R	Enter resize mode
   Arrows / HJKL	Resize (in mode)
   Enter / Esc	Exit resize mode
 

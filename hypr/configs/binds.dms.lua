@@ -8,7 +8,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("dms ipc call launcher toggle"),
     { description = "DMS application launcher" })
 
 -- Overview
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("dms ipc call overview toggle"),
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("dms ipc call overview toggle"),
     { description = "Toggle DMS overview" })
 
 -- Lock screen
@@ -28,8 +28,8 @@ hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("dms ipc call wallpaper next"
     { description = "Next wallpaper" })
 
 -- Rename workspace
-hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd("dms ipc call workspace-rename open"),
-    { description = "Rename workspace" })
+-- hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd("dms ipc call workspace-rename open"),
+--     { description = "Rename workspace" })
 
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd("dms screenshot"),

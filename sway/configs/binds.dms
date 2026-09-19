@@ -18,7 +18,7 @@ bindsym $mod+Alt+b exec dms ipc call bar toggleAutoHide index 0
 bindsym $mod+Shift+w exec dms ipc call wallpaper next
 
 # Rename workspace (DMS)
-bindsym Ctrl+Shift+r exec dms ipc call workspace-rename open
+# bindsym Ctrl+Shift+r exec dms ipc call workspace-rename open
 
 # Screen off + lock (DMS) — overrides base binds' $mod+Shift+p
 bindsym $mod+Shift+p exec ~/.config/sway/scripts/screen-off.sh dms

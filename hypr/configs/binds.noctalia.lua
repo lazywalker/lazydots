@@ -14,7 +14,7 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ncl .. " panel-toggle control-center"
     { description = "Noctalia control center" })
 
 -- Overview
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("qs -c overview ipc call overview toggle"),
+hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("qs -c overview ipc call overview toggle"),
     { description = "Toggle overview (Quickshell)" })
 
 -- Lock screen
@@ -42,9 +42,9 @@ hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ncl .. " nightlight-toggle"),
     { description = "Toggle night light (Noctalia)" })
 
 -- Rename workspace (fuzzel fallback)
-hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(
-    [[sh -c 'fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} hyprctl renameworkspace "{}"']]),
-    { description = "Rename workspace" })
+-- hl.bind("CTRL + SHIFT + R", hl.dsp.exec_cmd(
+--     [[sh -c 'fuzzel --dmenu --prompt="Rename workspace: " | xargs -r -I{} hyprctl renameworkspace "{}"']]),
+--     { description = "Rename workspace" })
 
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd(ncl .. " screenshot-region"),

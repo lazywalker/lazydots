@@ -59,12 +59,13 @@ COMMON_FILE="$SHARE_DIR/keyhint.common.txt"
 LOCAL_FILE="$CFG_ROOT/$LOCAL_DIR/scripts/keyhint.$COMP.txt"
 
 # ---------------------------------------------------------------------------
-# Build the full dataset: common file (under "General") + local file.
+# Build the full dataset: common file (its own top-level categories) + local file.
 # Each data file uses: "Category" header lines, then "key<TAB>desc" lines.
+# NOTE: any non-tab line is rendered as a top-level ▸ header, so do NOT add an
+# extra "General" wrapper — it would render as an empty group.
 # ---------------------------------------------------------------------------
 DATA=""
 if [[ -f "$COMMON_FILE" ]]; then
-    DATA+=$'General\n'
     DATA+="$(cat "$COMMON_FILE")"
     DATA+=$'\n'
 fi
