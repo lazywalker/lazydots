@@ -7,7 +7,6 @@ Super+Alt+Left/Right/Up/Down	Focus monitor
 Super+Shift+Ctrl+Left/Right/Up/Down	Move to monitor
 Super+1..9	Go to workspace
 Super+Shift+1..9	Move to workspace & follow
-Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
 Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 Super+Tab	Last window
@@ -16,7 +15,7 @@ Super+Escape	Cycle same-class window
 Hyprland — Layout
 Super+F	Fit view / maximize
 Super+Shift+F / Super+M	Fullscreen
-Alt+R	Resize (cycle presets)
+Super+R	Resize (cycle presets)
 Super+Shift+V	Floating toggle
 Super+Shift+C	Center floating window
 Super+T	Toggle group (tabbed)

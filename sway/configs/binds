@@ -39,17 +39,21 @@ bindsym $mod+Shift+b exec firefox
 # Close/kill window
 bindsym $mod+Shift+Q kill
 
-# QWERTY row → workspaces 1..6 (Mod+1..9 unchanged)
-bindsym $mod+q workspace number 1
-bindsym $mod+w workspace number 2
-bindsym $mod+e workspace number 3
-bindsym $mod+r workspace number 4
-bindsym $mod+t workspace number 5
-bindsym $mod+y workspace number 6
-bindsym $mod+u workspace number 7
-bindsym $mod+i workspace number 8
-bindsym $mod+o workspace number 9
-bindsym $mod+p workspace number 10
+# QWERTY row → workspaces 1..10 on Alt (Mod+1..9 unchanged; Mod+Q double-tap = close)
+bindsym Mod1+q workspace number 1
+bindsym Mod1+w workspace number 2
+bindsym Mod1+e workspace number 3
+bindsym Mod1+r workspace number 4
+bindsym Mod1+t workspace number 5
+bindsym Mod1+y workspace number 6
+bindsym Mod1+u workspace number 7
+bindsym Mod1+i workspace number 8
+bindsym Mod1+o workspace number 9
+bindsym Mod1+p workspace number 10
+
+# Mod+Q double-tap (single tap = no-op); R is single-press resize
+bindsym $mod+q exec --no-startup-id $HOME/.config/scripts/doubletap q swaymsg kill
+bindsym $mod+r mode "resize"
 
 # Mod+W sends Ctrl+W to focused window (close tab in apps)
 # bindsym $mod+W exec wtype -M ctrl -k w -m ctrl
@@ -239,7 +243,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym Mod1+r mode "resize"
 
 # ============================================================================
 # Scratchpad

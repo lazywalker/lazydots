@@ -48,32 +48,36 @@ hl.bind(mainMod .. " + ALT + D", hl.dsp.exec_cmd(
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.window.close(),
     { description = "Close focused window" })
 
-hl.bind(mainMod .. " + Q", hl.dsp.focus({ workspace = 1 }),
+hl.bind("ALT + Q", hl.dsp.focus({ workspace = 1 }),
     { description = "Go to workspace 1 (QWERTY row)" })
+
+-- Mod+Q double-tap → close window; single tap = no-op
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd('$HOME/.config/scripts/doubletap q hyprctl dispatch closewindow'),
+    { description = "Double-tap Q → close window (Mod+Shift+Q)" })
 
 -- Mod+W sends Ctrl+W to the focused window (close tab in apps)
 -- hl.bind(mainMod .. " + W", hl.dsp.send_shortcut({ mods = "CTRL", key = "W" }),
 --     { description = "Send Ctrl+W (close tab in app)" })
 
-hl.bind(mainMod .. " + W", hl.dsp.focus({ workspace = 2 }),
+hl.bind("ALT + W", hl.dsp.focus({ workspace = 2 }),
     { description = "Go to workspace 2 (QWERTY row)" })
 
-hl.bind(mainMod .. " + E", hl.dsp.focus({ workspace = 3 }),
+hl.bind("ALT + E", hl.dsp.focus({ workspace = 3 }),
     { description = "Go to workspace 3 (QWERTY row)" })
 
-hl.bind(mainMod .. " + Y", hl.dsp.focus({ workspace = 6 }),
+hl.bind("ALT + Y", hl.dsp.focus({ workspace = 6 }),
     { description = "Go to workspace 6 (QWERTY row)" })
 
-hl.bind(mainMod .. " + U", hl.dsp.focus({ workspace = 7 }),
+hl.bind("ALT + U", hl.dsp.focus({ workspace = 7 }),
     { description = "Go to workspace 7 (QWERTY row)" })
 
-hl.bind(mainMod .. " + I", hl.dsp.focus({ workspace = 8 }),
+hl.bind("ALT + I", hl.dsp.focus({ workspace = 8 }),
     { description = "Go to workspace 8 (QWERTY row)" })
 
-hl.bind(mainMod .. " + O", hl.dsp.focus({ workspace = 9 }),
+hl.bind("ALT + O", hl.dsp.focus({ workspace = 9 }),
     { description = "Go to workspace 9 (QWERTY row)" })
 
-hl.bind(mainMod .. " + P", hl.dsp.focus({ workspace = 10 }),
+hl.bind("ALT + P", hl.dsp.focus({ workspace = 10 }),
     { description = "Go to workspace 10 (QWERTY row)" })
 
 -- Mod+C / Mod+V → send Ctrl+Insert / Shift+Insert (universal copy/paste).
@@ -99,11 +103,11 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd("~/.config/hypr/scripts/fit-or-maximi
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle fullscreen" })
 
-hl.bind(mainMod .. " + R", hl.dsp.focus({ workspace = 4 }),
+hl.bind("ALT + R", hl.dsp.focus({ workspace = 4 }),
     { description = "Go to workspace 4 (QWERTY row)" })
 
-hl.bind("ALT + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
-    { description = "Cycle active window width (40/50/60%)" })
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/resize-cycle.sh"),
+    { description = "Cycle window width (40/50/60%)" })
 
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),
     { description = "Toggle maximize to edges" })
@@ -114,7 +118,7 @@ hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }),
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.center(),
     { description = "Center floating window" })
 
-hl.bind(mainMod .. " + T", hl.dsp.focus({ workspace = 5 }),
+hl.bind("ALT + T", hl.dsp.focus({ workspace = 5 }),
     { description = "Go to workspace 5 (QWERTY row)" })
 
 hl.bind(mainMod .. " + ALT + T", hl.dsp.group.toggle(),

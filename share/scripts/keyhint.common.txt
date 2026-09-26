@@ -11,10 +11,10 @@ Super+Slash	This cheatsheet
 
 Window
 Super+Shift+Q	Close window
-Alt+R	Resize window
+Super+Q ×2	Close window (double-tap)
 
 Workspaces
-Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
+Alt+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
 Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 

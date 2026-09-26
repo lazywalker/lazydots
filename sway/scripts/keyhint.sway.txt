@@ -3,7 +3,6 @@ Super+Left/Right/Up/Down	Focus direction
 Super+H/J/K/L	Focus (vim)
 Super+1..9	Go to workspace
 Super+Shift+1..9	Move to workspace & follow
-Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
 Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 Super+Shift+A	Focus parent container
@@ -27,7 +26,7 @@ Super+Ctrl+E	Toggle split (h/v)
 Super+Alt+Shift+H/V	Split horizontal/vertical
 
 Sway — Resize mode
-Alt+R	Enter resize mode
+Super+R	Enter resize mode
   Arrows / HJKL	Resize (in mode)
   Enter / Esc	Exit resize mode
 

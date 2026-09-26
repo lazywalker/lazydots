@@ -87,16 +87,21 @@ binds {
 
     Mod+Shift+Q repeat=false { close-window; }
 
-    Mod+Q repeat=false { focus-workspace 1; }
-    Mod+W repeat=false { focus-workspace 2; }
-    Mod+E repeat=false { focus-workspace 3; }
-    Mod+R repeat=false { focus-workspace 4; }
-    Mod+T repeat=false { focus-workspace 5; }
-    Mod+Y repeat=false { focus-workspace 6; }
-    Mod+U repeat=false { focus-workspace 7; }
-    Mod+I repeat=false { focus-workspace 8; }
-    Mod+O repeat=false { focus-workspace 9; }
-    Mod+P repeat=false { focus-workspace 10; }
+    // QWERTY row → workspaces 1..10 on Alt (Mod+1..9 unchanged; Mod+Q double-tap = close)
+    Alt+Q repeat=false { focus-workspace 1; }
+    Alt+W repeat=false { focus-workspace 2; }
+    Alt+E repeat=false { focus-workspace 3; }
+    Alt+R repeat=false { focus-workspace 4; }
+    Alt+T repeat=false { focus-workspace 5; }
+    Alt+Y repeat=false { focus-workspace 6; }
+    Alt+U repeat=false { focus-workspace 7; }
+    Alt+I repeat=false { focus-workspace 8; }
+    Alt+O repeat=false { focus-workspace 9; }
+    Alt+P repeat=false { focus-workspace 10; }
+
+    // Mod+Q double-tap (single tap = no-op)
+    Mod+Q repeat=false { spawn-sh "$HOME/.config/scripts/doubletap q niri msg action close-window"; }
+    Mod+R repeat=false { switch-preset-column-width; }
 
     // Mod+W sends Ctrl+W to focused window (close tab in apps)
     // Mod+W hotkey-overlay-title=null { spawn-sh "wtype -M ctrl -k w -m ctrl"; }
@@ -277,9 +282,8 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
-    // Cycle through widths set in preset-column-widths.
-    Alt+R { switch-preset-column-width; }
-    // Cycling through the presets in reverse order is also possible.
+    // Cycle through widths set in preset-column-widths. Forward cycle is now on
+    // double-tap Mod+R (Alt+R = workspace 4); backward cycle below.
     Mod+Shift+R { switch-preset-column-width-back; }
 
     Mod+Ctrl+Shift+R { switch-preset-window-height; }

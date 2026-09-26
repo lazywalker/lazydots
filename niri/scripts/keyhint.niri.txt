@@ -5,7 +5,6 @@ Super+H/J/K/L	Focus (vim)
 Super+Home/End	First/last column
 Super+1..9	Go to workspace
 Super+Shift+1..9	Move to workspace & follow
-Super+Q/W/E/R/T/Y/U/I/O/P	Go to workspace 1..10
 Super+G/B	Prev/next workspace
 Super+X	Previous workspace
 
@@ -17,7 +16,7 @@ Super+Shift+Ctrl+H/J/K/L	Move to monitor
 Super+,	Consume into column
 Super+.	Expel from column
 Super+BracketLeft/Right	Consume/expel side
-Alt+R	Cycle column width
+Super+R	Cycle column width
 Super+Shift+R	Cycle width back
 Super+Ctrl+R	Reset height
 Super+Ctrl+Shift+R	Cycle height preset
