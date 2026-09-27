@@ -29,6 +29,6 @@ hl.on("hyprland.start", function()
     end
     hl.exec_cmd("fcitx5 -d --replace")
     hl.exec_cmd("nm-applet --indicator")
-    -- Overview daemon (quickshell); toggled via Super+O IPC
-    hl.exec_cmd("qs -c overview -d")
+    -- Overview daemon (quickshell) - disabled: not started on either machine
+    -- hl.exec_cmd("qs -c overview -d")
 end)

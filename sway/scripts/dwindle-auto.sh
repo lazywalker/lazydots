@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # dwindle-auto.sh — Auto-alternating split direction for Sway (Hyprland Dwindle-like)
 #
 # On each new window, reads the parent container layout from the sway tree
@@ -9,11 +9,12 @@ set -u
 DEBUG="${DWM_DEBUG:-0}"
 log() { [[ "$DEBUG" == 1 ]] && echo "[$(date '+%H:%M:%S')] $*" >> /tmp/dwindle.log; }
 
-# Singleton: kill all other instances of this script, then proceed
-for pid in $(pgrep -f "dwindle-auto.sh" 2>/dev/null); do
-    [[ "$pid" != "$$" ]] && kill "$pid" 2>/dev/null
-done
-sleep 0.2
+# Singleton: flock-based. On swaymsg reload exec_always spawns a new instance
+# which exits immediately if one already holds the lock. (The old pkill-everyone
+# approach raced, accumulated duplicates and killed unrelated processes whose
+# command line merely contained the script name.)
+exec 9>/run/user/$(id -u)/dwindle-auto.lock
+flock -n 9 || exit 0
 
 # Wait for sway socket
 for _ in $(seq 1 30); do

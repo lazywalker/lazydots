@@ -52,7 +52,9 @@ hl.bind("ALT + Q", hl.dsp.focus({ workspace = 1 }),
     { description = "Go to workspace 1 (QWERTY row)" })
 
 -- Mod+Q double-tap → close window; single tap = no-op
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd('$HOME/.config/share/scripts/doubletap q hyprctl dispatch closewindow'),
+-- payload must use the Lua API: in 0.56 `hyprctl dispatch <name>` is only a
+-- shorthand inside `hyprctl eval`, the old dispatcher name is a silent no-op
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("~/.config/share/scripts/double-tap.sh q hyprctl eval 'hl.dispatch(hl.dsp.window.close())'"),
     { description = "Double-tap Q → close window (Mod+Shift+Q)" })
 
 -- Mod+W sends Ctrl+W to the focused window (close tab in apps)

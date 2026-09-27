@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # fuzzel-window.sh — fuzzel-based window switcher for Sway
 # Lists all visible windows across all workspaces, pipe to fuzzel dmenu, focus the selected one.
 # Bound to Mod+Tab / Mod+Shift+Tab

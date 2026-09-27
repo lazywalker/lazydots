@@ -13,9 +13,9 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(ncl .. " panel-toggle launcher"),
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(ncl .. " panel-toggle control-center"),
     { description = "Noctalia control center" })
 
--- Overview
-hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("qs -c overview ipc call overview toggle"),
-    { description = "Toggle overview (Quickshell)" })
+-- Overview - disabled: quickshell `qs` is not used on either machine
+-- hl.bind(mainMod .. " + SHIFT + O", hl.dsp.exec_cmd("qs -c overview ipc call overview toggle"),
+--     { description = "Toggle overview (Quickshell)" })
 
 -- Lock screen
 hl.bind(mainMod .. " + CTRL + ALT + L", hl.dsp.exec_cmd(ncl .. " session lock"),

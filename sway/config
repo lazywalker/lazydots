@@ -20,8 +20,11 @@ set $menu wmenu-run
 
 ### Output configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# 壁纸由 noctalia 负责（[wallpaper.automation] 每 300s 轮换）。
+# ⚠️ 这里不要再设 output * bg —— sway 自己画的背景会盖住 noctalia 的图层，
+#    表现为壁纸被钉死在这张图上不再轮换（2026-09-27 实测）。
+# 登录到 noctalia 起来之前这段时间是纯黑背景，Arch 上一直是这个行为。
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill #1a110f
 #
 # Example configuration:
 #

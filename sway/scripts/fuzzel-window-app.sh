@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # fuzzel-window-app.sh — fuzzel-based switcher for windows of the SAME application
 # Bound to Mod+Escape / Mod+Shift+Escape
 

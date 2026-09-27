@@ -5,5 +5,5 @@
 
 cursor {
     xcursor-theme "default"
-    xcursor-size 32
+    xcursor-size 24
 }
