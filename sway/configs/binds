@@ -52,7 +52,7 @@ bindsym Mod1+o workspace number 9
 bindsym Mod1+p workspace number 10
 
 # Mod+Q double-tap (single tap = no-op); R is single-press resize
-bindsym $mod+q exec --no-startup-id $HOME/.config/scripts/doubletap q swaymsg kill
+bindsym $mod+q exec --no-startup-id $HOME/.config/share/scripts/doubletap q swaymsg kill
 bindsym $mod+r mode "resize"
 
 # Mod+W sends Ctrl+W to focused window (close tab in apps)

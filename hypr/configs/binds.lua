@@ -52,7 +52,7 @@ hl.bind("ALT + Q", hl.dsp.focus({ workspace = 1 }),
     { description = "Go to workspace 1 (QWERTY row)" })
 
 -- Mod+Q double-tap → close window; single tap = no-op
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd('$HOME/.config/scripts/doubletap q hyprctl dispatch closewindow'),
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd('$HOME/.config/share/scripts/doubletap q hyprctl dispatch closewindow'),
     { description = "Double-tap Q → close window (Mod+Shift+Q)" })
 
 -- Mod+W sends Ctrl+W to the focused window (close tab in apps)
